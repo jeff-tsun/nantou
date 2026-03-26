@@ -1,0 +1,88 @@
+<script setup lang="ts">
+import { CalendarDays } from 'lucide-vue-next'
+import { activities, googleCalendarEmbedUrl } from '@/data/mockData'
+import PageBanner from '@/components/PageBanner.vue'
+import bannerImg from '@/assets/banner-activities.jpg'
+import { vElementVisibility } from '@vueuse/components'
+import { ref } from 'vue'
+
+const isVisible = ref(new Array(activities.length).fill(false))
+const onVisibility = (state: boolean, index: number) => {
+  if (state) isVisible.value[index] = true
+}
+</script>
+
+<template>
+  <div>
+    <PageBanner title="最新活動" subtitle="精彩活動紀錄與未來活動預告" :image="bannerImg" />
+
+    <div class="page-section">
+      <div class="container mx-auto">
+        <!-- Activity cards -->
+        <div class="grid gap-8 md:grid-cols-2 mb-16">
+          <article
+            v-for="(activity, i) in activities"
+            :key="activity.id"
+            v-element-visibility="(state: boolean) => onVisibility(state, i)"
+            :class="[
+              'overflow-hidden rounded-xl border bg-card shadow-sm card-hover transition-all duration-700 ease-out',
+              isVisible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            ]"
+            :style="{ transitionDelay: `${i * 100}ms` }"
+          >
+            <div class="aspect-video overflow-hidden bg-muted group">
+              <img
+                :src="activity.image"
+                :alt="activity.title"
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div class="p-6">
+              <div class="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+                <CalendarDays class="h-3.5 w-3.5" />
+                <time>{{ activity.date }}</time>
+              </div>
+              <h2 class="mb-3 text-xl font-bold text-card-foreground">{{ activity.title }}</h2>
+              <div
+                class="prose prose-sm max-w-none text-muted-foreground leading-relaxed content-html"
+                v-html="activity.contentHtml"
+              ></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Google Calendar -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="rounded-lg bg-[#1c8d3f]/10 p-2 text-[#1c8d3f]">
+              <CalendarDays class="h-6 w-6" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-foreground">活動行事曆</h2>
+              <p class="text-sm text-muted-foreground">查看近期及未來活動安排</p>
+            </div>
+          </div>
+          <div class="overflow-hidden rounded-lg border">
+            <iframe
+              :src="googleCalendarEmbedUrl"
+              title="活動行事曆"
+              class="w-full border-0"
+              style="height: 600px"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+::v-deep(.content-html p) {
+  margin-bottom: 0.5rem;
+}
+::v-deep(.content-html a) {
+  color: #1c8d3f;
+  text-decoration: underline;
+}
+</style>
