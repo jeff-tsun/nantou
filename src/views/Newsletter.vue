@@ -46,6 +46,13 @@ const pages141 = imageNames64Pages.map((name) => ({
   alt: `第141期 ${name.match(/^\d+$/) ? '第 ' + name + ' 頁' : name}`
 }))
 
+const imageNames142 = Array.from({ length: 51 }, (_, i) => (i + 1).toString().padStart(2, '0'))
+
+const pages142 = imageNames142.map((name) => ({
+  src: new URL(`../assets/newsletter/142/${name}.jpeg`, import.meta.url).href,
+  alt: `第142期 第 ${name} 頁`
+}))
+
 const issues: NewsletterIssue[] = [
   {
     id: 146,
@@ -61,6 +68,11 @@ const issues: NewsletterIssue[] = [
     id: 144,
     label: '第144期',
     pages: pages144,
+  },
+  {
+    id: 142,
+    label: '第142期',
+    pages: pages142,
   },
   {
     id: 141,

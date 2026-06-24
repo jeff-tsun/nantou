@@ -123,6 +123,14 @@ export const directorTerms: DirectorTerm[] = [
   {
     id: 24,
     label: '第24屆',
+    old: true,
+    pages: [
+      { src: new URL('../assets/newsletter/142/07.jpeg', import.meta.url).href, alt: '第24屆 1' },
+      { src: new URL('../assets/newsletter/142/08.jpeg', import.meta.url).href, alt: '第24屆 2' },
+      { src: new URL('../assets/newsletter/142/09.jpeg', import.meta.url).href, alt: '第24屆 3' },
+      { src: new URL('../assets/newsletter/142/10.jpeg', import.meta.url).href, alt: '第24屆 4' },
+      { src: new URL('../assets/newsletter/142/11.jpeg', import.meta.url).href, alt: '第24屆 5' },
+    ]
   },
   {
     id: 23,
