@@ -4,6 +4,7 @@ import { FileText, Send, CheckCircle } from 'lucide-vue-next'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerApplyImg from '@/assets/banner-apply.jpg'
 import { ElMessage } from 'element-plus'
+import axios from 'axios'
 
 interface FormData {
   name: string
@@ -32,6 +33,7 @@ const agreed = ref(false)
 const submitted = ref(false)
 const errors = ref<Partial<Record<keyof FormData, boolean>>>({})
 const showDialog = ref(false)
+const isSubmitting = ref(false)
 
 const requiredFields: (keyof FormData)[] = [
   'name', 'gender', 'birthday', 'township', 'idNumber', 'mobile', 'address', 'applicant'
@@ -78,13 +80,42 @@ const handleSubmit = () => {
   showDialog.value = true
 }
 
-const handleConfirm = () => {
-  showDialog.value = false
-  submitted.value = true
-  ElMessage.success('申請已送出！我們將盡快與您聯繫。')
+const handleConfirm = async () => {
+  isSubmitting.value = true
+  
+  try {
+    const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbycGKGyuuB9nwhFroBTwziqMoOTJuEDfFmUr65RjasBVStxZ0KPYHLyt5hwdW_lKdqQJw/exec'
+    
+    // 將表單資料以 text/plain 傳送以繞過 CORS 預檢
+    const response = await axios.post(GAS_API_URL, JSON.stringify(form.value), {
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      }
+    })
+
+    if (response.data.status === 'success') {
+      showDialog.value = false
+      submitted.value = true
+      ElMessage.success('申請已送出！我們將盡快與您聯繫。')
+    } else {
+      ElMessage.error('發送失敗：' + (response.data.message || '未知錯誤'))
+    }
+  } catch (error) {
+    console.error('API 呼叫錯誤', error)
+    ElMessage.error('網路錯誤，請稍後再試。')
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
 const isRequired = (key: keyof FormData) => requiredFields.includes(key)
+
+const resetForm = () => {
+  form.value = initialForm()
+  agreed.value = false
+  errors.value = {}
+  submitted.value = false
+}
 
 // Tailwind styled input class matching Shadcn
 const inputClass = "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-colors"
@@ -100,7 +131,15 @@ const inputClass = "flex h-10 w-full rounded-md border border-input bg-backgroun
           <CheckCircle class="h-20 w-20 text-primary" />
         </div>
         <h2 class="text-3xl font-bold mb-4">申請已送出！</h2>
-        <p class="text-muted-foreground text-lg">感謝您的申請，我們將盡快與您聯繫。</p>
+        <p class="text-muted-foreground text-lg mb-8">感謝您的申請，我們將盡快與您聯繫。</p>
+        <div class="flex justify-center gap-4">
+          <router-link to="/" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
+            返回首頁
+          </router-link>
+          <button @click="resetForm" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+            還要再申請
+          </button>
+        </div>
       </div>
     </div>
 
@@ -201,8 +240,8 @@ const inputClass = "flex h-10 w-full rounded-md border border-input bg-backgroun
       <strong class="text-red-500">會館電話(02)2357-9813</strong>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="showDialog = false">取消</el-button>
-          <el-button type="primary" @click="handleConfirm">確認送出</el-button>
+          <el-button @click="showDialog = false" :disabled="isSubmitting">取消</el-button>
+          <el-button type="primary" @click="handleConfirm" :loading="isSubmitting">確認送出</el-button>
         </div>
       </template>
     </el-dialog>
