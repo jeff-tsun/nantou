@@ -19,7 +19,10 @@ const onVisibility = (state: boolean, index: number) => {
     <div class="page-section">
       <div class="container mx-auto">
         <!-- Activity cards -->
-        <div class="grid gap-8 md:grid-cols-2 mb-16">
+        <div v-if="activities.length === 0" class="text-center py-20 bg-muted/30 rounded-xl border border-dashed mb-16">
+          <p class="text-muted-foreground text-lg">暫無最新活動</p>
+        </div>
+        <div v-else class="grid gap-8 md:grid-cols-2 mb-16">
           <article
             v-for="(activity, i) in activities"
             :key="activity.id"

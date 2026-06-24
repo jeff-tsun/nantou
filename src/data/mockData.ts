@@ -286,47 +286,47 @@ export interface Activity {
 }
 
 export const activities: Activity[] = [
-  {
-    id: 1,
-    title: '114年度春節團拜暨新春聯歡晚會',
-    date: '2025-02-08',
-    image: '/placeholder.svg',
-    contentHtml: `
-      <p>本會於114年2月8日(六)舉辦新春團拜暨聯歡晚會，當日席開50桌，共有超過500位鄉親參與盛會。</p>
-      <p>活動中安排了精彩的南投在地文化表演，包括竹藝舞蹈、茶道體驗等，讓旅居台北的鄉親們感受家鄉的溫暖。</p>
-      <p>理事長致詞時表示，同鄉會將持續為鄉親服務，加強聯誼互動，期許大家常回南投走走。</p>
-    `,
-  },
-  {
-    id: 2,
-    title: '南投縣觀光推廣暨產業博覽會',
-    date: '2025-03-15',
-    image: '/placeholder.svg',
-    contentHtml: `
-      <p>為推廣南投觀光及在地產業，本會特別與南投縣政府合作，於台北市舉辦觀光推廣博覽會。</p>
-      <p>現場展出南投特色農產品、手工藝品，並提供免費品茗體驗。多家南投在地業者參展，展示南投的多元產業魅力。</p>
-    `,
-  },
-  {
-    id: 3,
-    title: '第26屆理監事就職典禮',
-    date: '2024-12-20',
-    image: '/placeholder.svg',
-    contentHtml: `
-      <p>本會第26屆理監事就職典禮於113年12月20日盛大舉行，新任理事長林志明先生宣誓就職。</p>
-      <p>多位立委、議員及各界貴賓蒞臨祝賀，場面熱鬧非凡。新任理監事團隊將秉持服務鄉親的精神，推動各項會務工作。</p>
-    `,
-  },
-  {
-    id: 4,
-    title: '113年度重陽敬老聯歡活動',
-    date: '2024-10-11',
-    image: '/placeholder.svg',
-    contentHtml: `
-      <p>本會於重陽節前夕舉辦敬老聯歡活動，邀請75歲以上長輩鄉親共同參與。</p>
-      <p>活動中除了豐盛的餐敘外，還安排了健康檢查、才藝表演及摸彩活動，讓長輩們度過溫馨愉快的一天。</p>
-    `,
-  },
+  // {
+  //   id: 1,
+  //   title: '114年度春節團拜暨新春聯歡晚會',
+  //   date: '2025-02-08',
+  //   image: '/placeholder.svg',
+  //   contentHtml: `
+  //     <p>本會於114年2月8日(六)舉辦新春團拜暨聯歡晚會，當日席開50桌，共有超過500位鄉親參與盛會。</p>
+  //     <p>活動中安排了精彩的南投在地文化表演，包括竹藝舞蹈、茶道體驗等，讓旅居台北的鄉親們感受家鄉的溫暖。</p>
+  //     <p>理事長致詞時表示，同鄉會將持續為鄉親服務，加強聯誼互動，期許大家常回南投走走。</p>
+  //   `,
+  // },
+  // {
+  //   id: 2,
+  //   title: '南投縣觀光推廣暨產業博覽會',
+  //   date: '2025-03-15',
+  //   image: '/placeholder.svg',
+  //   contentHtml: `
+  //     <p>為推廣南投觀光及在地產業，本會特別與南投縣政府合作，於台北市舉辦觀光推廣博覽會。</p>
+  //     <p>現場展出南投特色農產品、手工藝品，並提供免費品茗體驗。多家南投在地業者參展，展示南投的多元產業魅力。</p>
+  //   `,
+  // },
+  // {
+  //   id: 3,
+  //   title: '第26屆理監事就職典禮',
+  //   date: '2024-12-20',
+  //   image: '/placeholder.svg',
+  //   contentHtml: `
+  //     <p>本會第26屆理監事就職典禮於113年12月20日盛大舉行，新任理事長林志明先生宣誓就職。</p>
+  //     <p>多位立委、議員及各界貴賓蒞臨祝賀，場面熱鬧非凡。新任理監事團隊將秉持服務鄉親的精神，推動各項會務工作。</p>
+  //   `,
+  // },
+  // {
+  //   id: 4,
+  //   title: '113年度重陽敬老聯歡活動',
+  //   date: '2024-10-11',
+  //   image: '/placeholder.svg',
+  //   contentHtml: `
+  //     <p>本會於重陽節前夕舉辦敬老聯歡活動，邀請75歲以上長輩鄉親共同參與。</p>
+  //     <p>活動中除了豐盛的餐敘外，還安排了健康檢查、才藝表演及摸彩活動，讓長輩們度過溫馨愉快的一天。</p>
+  //   `,
+  // },
 ];
 
 // ===== 活動影片 =====
@@ -340,39 +340,9 @@ export interface Video {
 export const videos: Video[] = [
   {
     id: 1,
-    title: '114年新春團拜精彩回顧',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2025-02-10',
-  },
-  {
-    id: 2,
-    title: '南投之美 - 日月潭四季風光',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2025-01-15',
-  },
-  {
-    id: 3,
-    title: '第26屆就職典禮紀實',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2024-12-25',
-  },
-  {
-    id: 4,
-    title: '重陽敬老活動花絮',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2024-10-15',
-  },
-  {
-    id: 5,
-    title: '南投茶鄉巡禮紀錄',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2024-09-20',
-  },
-  {
-    id: 6,
-    title: '113年度會員大會紀實',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    date: '2024-08-10',
+    title: '台北市南投縣同鄉會第26屆第一次會員大會 暨 第25.26屆理事長、婦女會會長交接、理監事就職典禮及第四季會員慶生會',
+    youtubeUrl: 'https://www.youtube.com/watch?v=wctP1_7ZX70',
+    date: '2024-12-14',
   },
 ];
 
