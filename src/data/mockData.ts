@@ -1,5 +1,6 @@
 // Imports for Activities
 import act20260627 from '@/assets/activities/20260627/20260627.jpg'
+import activityDefault from '@/assets/activities/activity-default.jpg'
 
 // Imports for Term 26
 import dir26_任志駿 from '@/assets/directors/26/任志駿.jpg'
@@ -284,42 +285,6 @@ export const directors: Record<number, Record<DirectorGroupName, DirectorPerson[
       { name: '黃鴻圖', title: '榮譽副理事長', image: dir26_黃鴻圖_榮譽副理事長 },
     ],
   },
-  // 25: {
-  //   '理事長': [
-  //     { name: '陳大明', title: '理事長', image: '/placeholder.svg' },
-  //   ],
-  //   '理監事暨會務人員': [
-  //     { name: '王志強', title: '副理事長', image: '/placeholder.svg' },
-  //     { name: '林雅琴', title: '副理事長', image: '/placeholder.svg' },
-  //     { name: '張建成', title: '常務理事', image: '/placeholder.svg' },
-  //     { name: '許美珍', title: '常務理事', image: '/placeholder.svg' },
-  //     { name: '黃文欽', title: '理事', image: '/placeholder.svg' },
-  //     { name: '蔡淑華', title: '理事', image: '/placeholder.svg' },
-  //     { name: '吳東昇', title: '常務監事', image: '/placeholder.svg' },
-  //     { name: '鄭麗香', title: '監事', image: '/placeholder.svg' },
-  //     { name: '周建民', title: '秘書長', image: '/placeholder.svg' },
-  //   ],
-  //   '顧問': [
-  //     { name: '劉正雄', title: '顧問', image: '/placeholder.svg' },
-  //     { name: '趙淑芬', title: '顧問', image: '/placeholder.svg' },
-  //   ],
-  //   '主任委員': [
-  //     { name: '孫大為', title: '財務委員會主任委員', image: '/placeholder.svg' },
-  //     { name: '馬玉琴', title: '活動委員會主任委員', image: '/placeholder.svg' },
-  //   ],
-  //   '歷屆理事長': [
-  //     { name: '李國華', title: '第23屆理事長', image: '/placeholder.svg' },
-  //     { name: '張志偉', title: '第22屆理事長', image: '/placeholder.svg' },
-  //     { name: '王美玉', title: '第21屆理事長', image: '/placeholder.svg' },
-  //   ],
-  //   '榮譽理事長': [
-  //     { name: '林清泉', title: '榮譽理事長', image: '/placeholder.svg' },
-  //   ],
-  //   '榮譽副理事長': [
-  //     { name: '張明德', title: '榮譽副理事長', image: '/placeholder.svg' },
-  //     { name: '黃秀珠', title: '榮譽副理事長', image: '/placeholder.svg' },
-  //   ],
-  // },
 };
 
 // ===== 活動 =====
@@ -331,13 +296,14 @@ export interface Activity {
   contentHtml: string;
   heroImage?: string;
   bodyHtml?: string;
+  hasDetailPage?: boolean;
 }
 
 export const activities: Activity[] = [
   {
     id: 1,
     title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
-    date: '2026-06-25',
+    date: '2026-06-27',
     image: act20260627,
     contentHtml: `
       <p>歡迎鄉親攜伴寶眷參加，共同聯誼交流！</p>
@@ -356,6 +322,78 @@ export const activities: Activity[] = [
     `,
     heroImage: act20260627,
     bodyHtml: '',
+  },
+  {
+    id: 2,
+    title: '總會 召開第9屆第6次理監事暨幹部聯席會議',
+    date: '2026-07-11',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 3,
+    title: '本會 召開第26屆第7次理監事聯席會議',
+    date: '2026-08-13',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 4,
+    title: '本會 重陽敬老暨第三季壽星慶生會',
+    date: '2026-09-19',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 5,
+    title: '本會 舉辦台北北音第二屆歌唱友誼賽',
+    date: '2026-09-26',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 6,
+    title: '總會 115年度鳳還巢活動',
+    date: '2026-10-02',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 7,
+    title: '本會 召開第26屆第8次理監事聯席會議',
+    date: '2026-10-15',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 8,
+    title: '總會 召開第9屆第7次理監事暨幹部聯席會議',
+    date: '2026-10',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 9,
+    title: '本會 召開本會第27屆第一次會員大會暨第四季慶生會',
+    date: '2026-12-05',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
+  },
+  {
+    id: 10,
+    title: '總會 召開第9屆第8次理監事暨幹部聯席會議',
+    date: '2027-01',
+    image: activityDefault,
+    contentHtml: '',
+    hasDetailPage: false,
   },
 ];
 
