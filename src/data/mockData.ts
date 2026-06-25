@@ -1,3 +1,6 @@
+// Imports for Activities
+import act20260627 from '@/assets/activities/20260627/20260627.jpg'
+
 // Imports for Term 26
 import dir26_任志駿 from '@/assets/directors/26/任志駿.jpg'
 import dir26_劉國士_理事 from '@/assets/directors/26/劉國士-理事.jpg'
@@ -326,50 +329,34 @@ export interface Activity {
   date: string;
   image: string;
   contentHtml: string;
+  heroImage?: string;
+  bodyHtml?: string;
 }
 
 export const activities: Activity[] = [
-  // {
-  //   id: 1,
-  //   title: '114年度春節團拜暨新春聯歡晚會',
-  //   date: '2025-02-08',
-  //   image: '/placeholder.svg',
-  //   contentHtml: `
-  //     <p>本會於114年2月8日(六)舉辦新春團拜暨聯歡晚會，當日席開50桌，共有超過500位鄉親參與盛會。</p>
-  //     <p>活動中安排了精彩的南投在地文化表演，包括竹藝舞蹈、茶道體驗等，讓旅居台北的鄉親們感受家鄉的溫暖。</p>
-  //     <p>理事長致詞時表示，同鄉會將持續為鄉親服務，加強聯誼互動，期許大家常回南投走走。</p>
-  //   `,
-  // },
-  // {
-  //   id: 2,
-  //   title: '南投縣觀光推廣暨產業博覽會',
-  //   date: '2025-03-15',
-  //   image: '/placeholder.svg',
-  //   contentHtml: `
-  //     <p>為推廣南投觀光及在地產業，本會特別與南投縣政府合作，於台北市舉辦觀光推廣博覽會。</p>
-  //     <p>現場展出南投特色農產品、手工藝品，並提供免費品茗體驗。多家南投在地業者參展，展示南投的多元產業魅力。</p>
-  //   `,
-  // },
-  // {
-  //   id: 3,
-  //   title: '第26屆理監事就職典禮',
-  //   date: '2024-12-20',
-  //   image: '/placeholder.svg',
-  //   contentHtml: `
-  //     <p>本會第26屆理監事就職典禮於113年12月20日盛大舉行，新任理事長林志明先生宣誓就職。</p>
-  //     <p>多位立委、議員及各界貴賓蒞臨祝賀，場面熱鬧非凡。新任理監事團隊將秉持服務鄉親的精神，推動各項會務工作。</p>
-  //   `,
-  // },
-  // {
-  //   id: 4,
-  //   title: '113年度重陽敬老聯歡活動',
-  //   date: '2024-10-11',
-  //   image: '/placeholder.svg',
-  //   contentHtml: `
-  //     <p>本會於重陽節前夕舉辦敬老聯歡活動，邀請75歲以上長輩鄉親共同參與。</p>
-  //     <p>活動中除了豐盛的餐敘外，還安排了健康檢查、才藝表演及摸彩活動，讓長輩們度過溫馨愉快的一天。</p>
-  //   `,
-  // },
+  {
+    id: 1,
+    title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
+    date: '2026-06-27',
+    image: act20260627,
+    contentHtml: `
+      <p>歡迎鄉親攜伴寶眷參加，共同聯誼交流！</p>
+      <ul>
+        <li>📅 <strong>日期：</strong>115年6月27日（星期六）上午 10:30</li>
+        <li>📍 <strong>地點：</strong>薪僑園水源會館（百合廳）<br>台北市中正區思源街16號2樓（禮客商場2樓）</li>
+        <li>💰 <strong>費用：</strong>會員 500 元（配偶／直系親屬 800 元）；非會員 1,000 元</li>
+      </ul>
+      <h3>活動流程</h3>
+      <ul>
+        <li>10:40 ~ 11:40　自然美學壓花木框手作</li>
+        <li>11:40 ~ 14:30　午宴暨慶生會</li>
+      </ul>
+      <p>理事長 陳怡潔 暨理監事團隊 敬邀</p>
+      <p>📌 報名參加請 LINE 群組登記</p>
+    `,
+    heroImage: act20260627,
+    bodyHtml: '',
+  },
 ];
 
 // ===== 活動影片 =====

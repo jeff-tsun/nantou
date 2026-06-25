@@ -5,6 +5,7 @@ import Directors from '@/views/Directors.vue'
 import Activities from '@/views/Activities.vue'
 import Videos from '@/views/Videos.vue'
 import Apply from '@/views/Apply.vue'
+import ActivityDetail from '@/views/ActivityDetail.vue'
 import NotFound from '@/views/NotFound.vue'
 
 const routes = [
@@ -37,6 +38,11 @@ const routes = [
     path: '/apply',
     name: 'Apply',
     component: Apply
+  },
+  {
+    path: '/activities/:date',
+    name: 'ActivityDetail',
+    component: ActivityDetail
   },
   {
     path: '/:pathMatch(.*)*',

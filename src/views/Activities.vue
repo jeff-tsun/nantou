@@ -5,6 +5,7 @@ import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-activities.jpg'
 import { vElementVisibility } from '@vueuse/components'
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const isVisible = ref(new Array(activities.length).fill(false))
 const onVisibility = (state: boolean, index: number) => {
@@ -23,12 +24,13 @@ const onVisibility = (state: boolean, index: number) => {
           <p class="text-muted-foreground text-lg">暫無最新活動</p>
         </div>
         <div v-else class="grid gap-8 md:grid-cols-2 mb-16">
-          <article
+          <RouterLink
             v-for="(activity, i) in activities"
             :key="activity.id"
+            :to="`/activities/${activity.date}`"
             v-element-visibility="(state: boolean) => onVisibility(state, i)"
             :class="[
-              'overflow-hidden rounded-xl border bg-card shadow-sm card-hover transition-all duration-700 ease-out',
+              'overflow-hidden rounded-xl border bg-card shadow-sm card-hover transition-all duration-700 ease-out block no-underline',
               isVisible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             ]"
             :style="{ transitionDelay: `${i * 100}ms` }"
@@ -51,7 +53,7 @@ const onVisibility = (state: boolean, index: number) => {
                 v-html="activity.contentHtml"
               ></div>
             </div>
-          </article>
+          </RouterLink>
         </div>
 
         <!-- Google Calendar -->
