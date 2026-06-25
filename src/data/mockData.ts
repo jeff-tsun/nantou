@@ -337,7 +337,7 @@ export const activities: Activity[] = [
   {
     id: 1,
     title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
-    date: '2026-06-27',
+    date: '2026-06-25',
     image: act20260627,
     contentHtml: `
       <p>歡迎鄉親攜伴寶眷參加，共同聯誼交流！</p>
@@ -469,7 +469,7 @@ export const videos: Video[] = [
 // ===== Google 行事曆 =====
 // 請將下方 src 替換為實際的 Google Calendar 嵌入網址
 export const googleCalendarEmbedUrl =
-  'https://calendar.google.com/calendar/embed?src=zh-tw.taiwan%23holiday%40group.v.calendar.google.com&ctz=Asia%2FTaipei';
+  'https://calendar.google.com/calendar/embed?src=tpna26%40gmail.com&ctz=Asia%2FTaipei';
 
 // ===== 工具函式 =====
 export function getYouTubeEmbedUrl(url: string): string {
