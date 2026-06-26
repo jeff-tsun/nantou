@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { User, ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import { directorTerms, directorGroups, directors, type DirectorGroupName } from '@/data/mockData'
+import { directorTerms, directorGroups, directors, type DirectorGroupName } from '@/data/directors'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-directors.jpg'
 

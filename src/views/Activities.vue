@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CalendarDays } from 'lucide-vue-next'
-import { activities, googleCalendarEmbedUrl } from '@/data/mockData'
+import { activities, googleCalendarEmbedUrl } from '@/data/activities'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-activities.jpg'
 import { vElementVisibility } from '@vueuse/components'
@@ -15,13 +15,13 @@ const onVisibility = (state: boolean, index: number) => {
 
 <template>
   <div>
-    <PageBanner title="最新活動" subtitle="精彩活動紀錄與未來活動預告" :image="bannerImg" />
+    <PageBanner title="最新消息" subtitle="精彩活動紀錄與未來活動預告" :image="bannerImg" />
 
     <div class="page-section">
       <div class="container mx-auto">
         <!-- Activity cards -->
         <div v-if="activities.length === 0" class="text-center py-20 bg-muted/30 rounded-xl border border-dashed mb-16">
-          <p class="text-muted-foreground text-lg">暫無最新活動</p>
+          <p class="text-muted-foreground text-lg">暫無最新消息</p>
         </div>
         <div v-else class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
           <component
@@ -62,7 +62,7 @@ const onVisibility = (state: boolean, index: number) => {
                 v-else
                 class="text-sm text-muted-foreground leading-relaxed"
               >
-                敬請期待相關活動詳細資訊...
+                敬請期待相關最新消息詳細資訊...
               </div>
             </div>
           </component>
@@ -75,14 +75,14 @@ const onVisibility = (state: boolean, index: number) => {
               <CalendarDays class="h-6 w-6" />
             </div>
             <div>
-              <h2 class="text-2xl font-bold text-foreground">活動行事曆</h2>
+              <h2 class="text-2xl font-bold text-foreground">行事曆</h2>
               <p class="text-sm text-muted-foreground">查看近期及未來活動安排</p>
             </div>
           </div>
           <div class="overflow-hidden rounded-lg border">
             <iframe
               :src="googleCalendarEmbedUrl"
-              title="活動行事曆"
+              title="行事曆"
               class="w-full border-0"
               style="height: 600px"
               loading="lazy"

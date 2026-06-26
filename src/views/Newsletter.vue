@@ -18,6 +18,8 @@ const imageNames64Pages = [
   '封底'
 ]
 
+const imageNames142 = Array.from({ length: 51 }, (_, i) => (i + 1).toString().padStart(2, '0'))
+
 const imageNames144 = [
   '封面',
   '封面裡',
@@ -45,8 +47,6 @@ const pages141 = imageNames64Pages.map((name) => ({
   src: new URL(`../assets/newsletter/141/${name}.jpg`, import.meta.url).href,
   alt: `第141期 ${name.match(/^\d+$/) ? '第 ' + name + ' 頁' : name}`
 }))
-
-const imageNames142 = Array.from({ length: 51 }, (_, i) => (i + 1).toString().padStart(2, '0'))
 
 const pages142 = imageNames142.map((name) => ({
   src: new URL(`../assets/newsletter/142/${name}.jpeg`, import.meta.url).href,

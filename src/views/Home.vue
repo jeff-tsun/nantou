@@ -23,7 +23,7 @@ const features = [
   },
   {
     icon: Calendar,
-    title: '最新活動',
+    title: '最新消息',
     desc: '查看近期活動資訊與精彩回顧',
     path: '/activities',
     color: 'text-[#1c8d3f]',
@@ -31,9 +31,9 @@ const features = [
   },
   {
     icon: Video,
-    title: '活動影片',
+    title: '活動紀錄',
     desc: '觀賞精彩的活動紀錄影片',
-    path: '/videos',
+    path: '/gallery',
     color: 'text-[#ebbb1c]',
     bg: 'bg-[#ebbb1c]/10',
   },
@@ -94,7 +94,7 @@ const onCtaVisibility = (state: boolean) => { if (state) ctaVisible.value = true
             class="inline-flex items-center gap-2 rounded-full bg-gradient-hero px-8 py-3 font-semibold text-primary-foreground shadow-brand transition-transform hover:scale-105"
           >
             <Calendar class="h-5 w-5" />
-            最新活動
+            最新消息
           </RouterLink>
         </div>
       </div>

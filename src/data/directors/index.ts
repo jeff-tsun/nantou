@@ -1,7 +1,3 @@
-// Imports for Activities
-import act20260627 from '@/assets/activities/20260627/20260627.jpg'
-import activityDefault from '@/assets/activities/activity-default.jpg'
-
 // Imports for Term 26
 import dir26_任志駿 from '@/assets/directors/26/任志駿.jpg'
 import dir26_劉國士_理事 from '@/assets/directors/26/劉國士-理事.jpg'
@@ -117,11 +113,11 @@ export const directorTerms: DirectorTerm[] = [
     label: '第25屆',
     old: true,
     pages: [
-      { src: new URL('../assets/newsletter/144/068.jpg', import.meta.url).href, alt: '第25屆 1' },
-      { src: new URL('../assets/newsletter/144/069.jpg', import.meta.url).href, alt: '第25屆 2' },
-      { src: new URL('../assets/newsletter/144/070.jpg', import.meta.url).href, alt: '第25屆 3' },
-      { src: new URL('../assets/newsletter/144/071.jpg', import.meta.url).href, alt: '第25屆 4' },
-      { src: new URL('../assets/newsletter/144/072.jpg', import.meta.url).href, alt: '第25屆 5' },
+      { src: new URL('../../assets/newsletter/144/068.jpg', import.meta.url).href, alt: '第25屆 1' },
+      { src: new URL('../../assets/newsletter/144/069.jpg', import.meta.url).href, alt: '第25屆 2' },
+      { src: new URL('../../assets/newsletter/144/070.jpg', import.meta.url).href, alt: '第25屆 3' },
+      { src: new URL('../../assets/newsletter/144/071.jpg', import.meta.url).href, alt: '第25屆 4' },
+      { src: new URL('../../assets/newsletter/144/072.jpg', import.meta.url).href, alt: '第25屆 5' },
     ]
   },
   {
@@ -129,11 +125,11 @@ export const directorTerms: DirectorTerm[] = [
     label: '第24屆',
     old: true,
     pages: [
-      { src: new URL('../assets/newsletter/142/07.jpeg', import.meta.url).href, alt: '第24屆 1' },
-      { src: new URL('../assets/newsletter/142/08.jpeg', import.meta.url).href, alt: '第24屆 2' },
-      { src: new URL('../assets/newsletter/142/09.jpeg', import.meta.url).href, alt: '第24屆 3' },
-      { src: new URL('../assets/newsletter/142/10.jpeg', import.meta.url).href, alt: '第24屆 4' },
-      { src: new URL('../assets/newsletter/142/11.jpeg', import.meta.url).href, alt: '第24屆 5' },
+      { src: new URL('../../assets/newsletter/142/07.jpeg', import.meta.url).href, alt: '第24屆 1' },
+      { src: new URL('../../assets/newsletter/142/08.jpeg', import.meta.url).href, alt: '第24屆 2' },
+      { src: new URL('../../assets/newsletter/142/09.jpeg', import.meta.url).href, alt: '第24屆 3' },
+      { src: new URL('../../assets/newsletter/142/10.jpeg', import.meta.url).href, alt: '第24屆 4' },
+      { src: new URL('../../assets/newsletter/142/11.jpeg', import.meta.url).href, alt: '第24屆 5' },
     ]
   },
   {
@@ -141,12 +137,12 @@ export const directorTerms: DirectorTerm[] = [
     label: '第23屆',
     old: true,
     pages: [
-      { src: new URL('../assets/newsletter/141/10.jpg', import.meta.url).href, alt: '第23屆 1' },
-      { src: new URL('../assets/newsletter/141/11.jpg', import.meta.url).href, alt: '第23屆 2' },
-      { src: new URL('../assets/newsletter/141/12.jpg', import.meta.url).href, alt: '第23屆 3' },
-      { src: new URL('../assets/newsletter/141/13.jpg', import.meta.url).href, alt: '第23屆 4' },
-      { src: new URL('../assets/newsletter/141/14.jpg', import.meta.url).href, alt: '第23屆 5' },
-      { src: new URL('../assets/newsletter/141/15.jpg', import.meta.url).href, alt: '第23屆 6' },
+      { src: new URL('../../assets/newsletter/141/10.jpg', import.meta.url).href, alt: '第23屆 1' },
+      { src: new URL('../../assets/newsletter/141/11.jpg', import.meta.url).href, alt: '第23屆 2' },
+      { src: new URL('../../assets/newsletter/141/12.jpg', import.meta.url).href, alt: '第23屆 3' },
+      { src: new URL('../../assets/newsletter/141/13.jpg', import.meta.url).href, alt: '第23屆 4' },
+      { src: new URL('../../assets/newsletter/141/14.jpg', import.meta.url).href, alt: '第23屆 5' },
+      { src: new URL('../../assets/newsletter/141/15.jpg', import.meta.url).href, alt: '第23屆 6' },
     ]
   },
 ];
@@ -286,231 +282,3 @@ export const directors: Record<number, Record<DirectorGroupName, DirectorPerson[
     ],
   },
 };
-
-// ===== 活動 =====
-export interface Activity {
-  id: number;
-  title: string;
-  date: string;
-  image: string;
-  contentHtml: string;
-  heroImage?: string;
-  bodyHtml?: string;
-  hasDetailPage?: boolean;
-}
-
-export const activities: Activity[] = [
-  {
-    id: 1,
-    title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
-    date: '2026-06-27',
-    image: act20260627,
-    contentHtml: `
-      <p>歡迎鄉親攜伴寶眷參加，共同聯誼交流！</p>
-      <ul>
-        <li>📅 <strong>日期：</strong>115年6月27日（星期六）上午 10:30</li>
-        <li>📍 <strong>地點：</strong>薪僑園水源會館（百合廳）<br>台北市中正區思源街16號2樓（禮客商場2樓）</li>
-        <li>💰 <strong>費用：</strong>會員 500 元（配偶／直系親屬 800 元）；非會員 1,000 元</li>
-      </ul>
-      <h3>活動流程</h3>
-      <ul>
-        <li>10:40 ~ 11:40　自然美學壓花木框手作</li>
-        <li>11:40 ~ 14:30　午宴暨慶生會</li>
-      </ul>
-      <p>理事長 陳怡潔 暨理監事團隊 敬邀</p>
-      <p>📌 報名參加請 LINE 群組登記</p>
-    `,
-    heroImage: act20260627,
-    bodyHtml: '',
-  },
-  {
-    id: 2,
-    title: '總會 召開第9屆第6次理監事暨幹部聯席會議',
-    date: '2026-07-11',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 3,
-    title: '本會 召開第26屆第7次理監事聯席會議',
-    date: '2026-08-13',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 4,
-    title: '本會 重陽敬老暨第三季壽星慶生會',
-    date: '2026-09-19',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 5,
-    title: '本會 舉辦台北北音第二屆歌唱友誼賽',
-    date: '2026-09-26',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 6,
-    title: '總會 115年度鳳還巢活動',
-    date: '2026-10-02',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 7,
-    title: '本會 召開第26屆第8次理監事聯席會議',
-    date: '2026-10-15',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 8,
-    title: '總會 召開第9屆第7次理監事暨幹部聯席會議',
-    date: '2026-10',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 9,
-    title: '本會 召開本會第27屆第一次會員大會暨第四季慶生會',
-    date: '2026-12-05',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    id: 10,
-    title: '總會 召開第9屆第8次理監事暨幹部聯席會議',
-    date: '2027-01',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
-  },
-];
-
-// ===== 活動影片 =====
-export interface Video {
-  id: number;
-  title: string;
-  youtubeUrl: string;
-  date: string;
-}
-
-export const videos: Video[] = [
-  {
-    id: 1,
-    title: '台北市南投縣同鄉會第26屆第一次會員大會 暨 第25.26屆理事長、婦女會會長交接、理監事就職典禮及第四季會員慶生會',
-    youtubeUrl: 'https://www.youtube.com/watch?v=wctP1_7ZX70',
-    date: '2024-12-14',
-  },
-  {
-    id: 2,
-    title: '知能研習急救訓練-第26屆台北市南投縣同鄉會',
-    youtubeUrl: 'https://www.youtube.com/watch?v=AbcQ7fJhbHo',
-    date: '2025-07-03',
-  },
-  {
-    id: 3,
-    title: '手作優格教學-第26屆台北市南投縣同鄉會',
-    youtubeUrl: 'https://www.youtube.com/watch?v=jJMr8Bhvwqg',
-    date: '2025-06-19',
-  },
-  {
-    id: 4,
-    title: '新春開工團拜-第26屆台北市南投縣同鄉會',
-    youtubeUrl: 'https://www.youtube.com/watch?v=3zPjbTlPpfs',
-    date: '2025-02-05',
-  },
-  {
-    id: 5,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-頒發感謝狀、旗袍之美 青花瓷',
-    youtubeUrl: 'https://www.youtube.com/watch?v=MucoFpVkaZc',
-    date: '2025-12-06',
-  },
-  {
-    id: 6,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-單簧管笛四重奏',
-    youtubeUrl: 'https://www.youtube.com/watch?v=YIDa_S4pOUA',
-    date: '2025-12-06',
-  },
-  {
-    id: 7,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-木管五重奏',
-    youtubeUrl: 'https://www.youtube.com/watch?v=QM8WRr9x4ZY',
-    date: '2025-12-06',
-  },
-  {
-    id: 8,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-木管五重奏-木舞飛揚 進場',
-    youtubeUrl: 'https://www.youtube.com/watch?v=r9WHmRaURcE&',
-    date: '2025-12-06',
-  },
-  {
-    id: 9,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-三代同堂',
-    youtubeUrl: 'https://www.youtube.com/watch?v=o34JEQoBpDM',
-    date: '2025-12-06',
-  },
-  {
-    id: 10,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-提案及貴賓介紹',
-    youtubeUrl: 'https://www.youtube.com/watch?v=mBfOc3d7N5o',
-    date: '2025-12-06',
-  },
-  {
-    id: 11,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-監察報告 林綉春 常監',
-    youtubeUrl: 'https://www.youtube.com/watch?v=QGQ5CPhyE3c',
-    date: '2025-12-06',
-  },
-  {
-    id: 12,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-貴賓致詞陳威中、林秋香',
-    youtubeUrl: 'https://www.youtube.com/watch?v=H0vvnlgWv4o',
-    date: '2025-12-06',
-  },
-  {
-    id: 13,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-貴賓致詞陳文質、陳柄嶂',
-    youtubeUrl: 'https://www.youtube.com/watch?v=8Zx_rW-5rFg',
-    date: '2025-12-06',
-  },
-  {
-    id: 14,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-貴賓致詞洪孟楷、區長',
-    youtubeUrl: 'https://www.youtube.com/watch?v=hPgoKiHVr1I',
-    date: '2025-12-06',
-  },
-  {
-    id: 15,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會-貴賓致詞林哲生',
-    youtubeUrl: 'https://www.youtube.com/watch?v=l0gHCkq7Vkw',
-    date: '2025-12-06',
-  },
-  {
-    id: 16,
-    title: '台北市南投縣同鄉會第26屆第二次會員大會表演-舞獅迎三代',
-    youtubeUrl: 'https://www.youtube.com/watch?v=fnnvw5RV31c',
-    date: '2025-12-06',
-  },
-];
-
-// ===== Google 行事曆 =====
-// 請將下方 src 替換為實際的 Google Calendar 嵌入網址
-export const googleCalendarEmbedUrl =
-  'https://calendar.google.com/calendar/embed?src=tpna26%40gmail.com&ctz=Asia%2FTaipei';
-
-// ===== 工具函式 =====
-export function getYouTubeEmbedUrl(url: string): string {
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&]+)/);
-  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
-}

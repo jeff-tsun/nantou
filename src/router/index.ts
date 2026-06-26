@@ -3,7 +3,7 @@ import Home from '@/views/Home.vue'
 import Newsletter from '@/views/Newsletter.vue'
 import Directors from '@/views/Directors.vue'
 import Activities from '@/views/Activities.vue'
-import Videos from '@/views/Videos.vue'
+import Gallery from '@/views/Gallery.vue'
 import Apply from '@/views/Apply.vue'
 import ActivityDetail from '@/views/ActivityDetail.vue'
 import NotFound from '@/views/NotFound.vue'
@@ -30,9 +30,9 @@ const routes = [
     component: Activities
   },
   {
-    path: '/videos',
-    name: 'Videos',
-    component: Videos
+    path: '/gallery',
+    name: 'Gallery',
+    component: Gallery
   },
   {
     path: '/apply',

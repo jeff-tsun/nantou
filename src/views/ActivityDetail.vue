@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { CalendarDays, ArrowLeft } from 'lucide-vue-next'
-import { activities } from '@/data/mockData'
+import { activities } from '@/data/activities'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-activities.jpg'
 
@@ -20,7 +20,7 @@ function goBack() {
 
 <template>
   <div>
-    <PageBanner title="最新活動" subtitle="精彩活動紀錄與未來活動預告" :image="bannerImg" />
+    <PageBanner title="最新消息" subtitle="精彩活動紀錄與未來活動預告" :image="bannerImg" />
 
     <div class="page-section">
       <div class="container mx-auto max-w-4xl">
@@ -31,15 +31,15 @@ function goBack() {
           class="mb-8 inline-flex items-center gap-2 rounded-lg bg-[#1c8d3f]/10 px-4 py-2 text-sm font-medium text-[#1c8d3f] hover:bg-[#1c8d3f]/20 transition-colors duration-200"
         >
           <ArrowLeft class="h-4 w-4" />
-          返回活動列表
+          返回最新消息列表
         </button>
 
-        <!-- 找不到活動 -->
+        <!-- 找不到最新消息 -->
         <div v-if="!activity" class="text-center py-20 bg-muted/30 rounded-xl border border-dashed">
-          <p class="text-muted-foreground text-lg">找不到此活動</p>
+          <p class="text-muted-foreground text-lg">找不到此最新消息</p>
         </div>
 
-        <!-- 活動內頁 -->
+        <!-- 最新消息內頁 -->
         <article v-else>
 
           <!-- 1. 時間 + 標題 -->
@@ -83,7 +83,7 @@ function goBack() {
             class="flex items-center gap-2 px-6 py-3 rounded-lg bg-[#1c8d3f] text-white text-sm font-medium hover:bg-[#157a34] transition-colors duration-200"
           >
             <ArrowLeft class="h-4 w-4" />
-            返回活動列表
+            返回最新消息列表
           </button>
         </div>
 

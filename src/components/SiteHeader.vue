@@ -10,8 +10,8 @@ const mobileOpen = ref(false)
 const navItems = [
   { label: '會刊', path: '/newsletter', icon: BookOpen },
   { label: '理監事介紹', path: '/directors', icon: Users },
-  { label: '活動', path: '/activities', icon: Calendar },
-  { label: '活動影片', path: '/videos', icon: Video },
+  { label: '最新消息', path: '/activities', icon: Calendar },
+  { label: '活動紀錄', path: '/gallery', icon: Video },
   { label: '入會申請', path: '/apply', icon: FileText },
 ]
 
