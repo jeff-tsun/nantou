@@ -24,6 +24,9 @@ const onPhotoVisibility = (state: boolean, index: number) => {
   if (state) isPhotoVisible.value[index] = true
 }
 
+// 追蹤個別圖片是否載入失敗 (例如 Google Drive 權限被擋)
+const imageLoadErrors = ref<Record<number, boolean>>({})
+
 const fetchPhotos = async () => {
   isLoadingPhotos.value = true
   hasPhotoError.value = false
@@ -84,32 +87,42 @@ onMounted(() => {
         </div>
 
         <!-- Videos Tab -->
-        <div v-if="activeTab === 'video'" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div
-            v-for="(item, i) in gallery"
-            :key="item.id"
-            v-element-visibility="(state: boolean) => onVideoVisibility(state, i)"
-            :class="[
-              'overflow-hidden rounded-xl border bg-card shadow-sm card-hover transition-all duration-700 ease-out',
-              isVideoVisible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            ]"
-            :style="{ transitionDelay: `${i * 100}ms` }"
-          >
-            <div class="aspect-video">
-              <iframe
-                :src="getYouTubeEmbedUrl(item.youtubeUrl)"
-                :title="item.title"
-                class="h-full w-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-            <div class="p-4 border-t-2 border-[#ebbb1c]">
-              <h3 class="font-bold text-card-foreground mb-1">{{ item.title }}</h3>
-              <div class="flex items-center gap-1.5 text-xs text-[#ebbb1c]">
-                <CalendarDays class="h-3 w-3" />
-                <time>{{ item.date }}</time>
+        <div v-if="activeTab === 'video'">
+          <!-- Empty State -->
+          <div v-if="gallery.length === 0" class="text-center py-12 text-muted-foreground">
+            <Video class="h-12 w-12 mx-auto mb-4 text-gray-300" />
+            <p class="font-semibold text-lg">暫無影片紀錄</p>
+            <p class="text-sm text-gray-400">目前沒有影片紀錄，請稍後再試。</p>
+          </div>
+
+          <!-- Video Grid List -->
+          <div v-else class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              v-for="(item, i) in gallery"
+              :key="item.id"
+              v-element-visibility="(state: boolean) => onVideoVisibility(state, i)"
+              :class="[
+                'overflow-hidden rounded-xl border bg-card shadow-sm card-hover transition-all duration-700 ease-out',
+                isVideoVisible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              ]"
+              :style="{ transitionDelay: `${i * 100}ms` }"
+            >
+              <div class="aspect-video">
+                <iframe
+                  :src="getYouTubeEmbedUrl(item.youtubeUrl)"
+                  :title="item.title"
+                  class="h-full w-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="p-4 border-t-2 border-[#ebbb1c]">
+                <h3 class="font-bold text-card-foreground mb-1">{{ item.title }}</h3>
+                <div class="flex items-center gap-1.5 text-xs text-[#ebbb1c]">
+                  <CalendarDays class="h-3 w-3" />
+                  <time>{{ item.date }}</time>
+                </div>
               </div>
             </div>
           </div>
@@ -167,13 +180,19 @@ onMounted(() => {
               ]"
               :style="{ transitionDelay: `${i * 100}ms` }"
             >
-              <div class="aspect-video overflow-hidden">
+              <div class="aspect-video overflow-hidden bg-gray-100 flex items-center justify-center relative">
                 <img
+                  v-if="!imageLoadErrors[item.id]"
                   :src="item.imageUrl"
                   :alt="item.title"
                   class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
+                  @error="imageLoadErrors[item.id] = true"
                 />
+                <div v-else class="flex flex-col items-center justify-center p-4 text-muted-foreground w-full h-full">
+                  <Image class="h-8 w-8 mb-1.5 text-gray-400" />
+                  <span class="text-xs text-gray-400">無法顯示照片 (請確認共用權限)</span>
+                </div>
               </div>
               <div class="p-4 border-t-2 border-[#ebbb1c]">
                 <h3 class="font-bold text-card-foreground mb-1">{{ item.title }}</h3>
