@@ -221,9 +221,8 @@ const inputClass = "flex h-10 w-full rounded-md border border-input bg-backgroun
             <div class="rounded-lg border bg-card p-5 space-y-2 text-sm text-muted-foreground">
               <h3 class="font-bold text-foreground text-base mb-3">備註</h3>
               <p>一、會員會費：貳仟元整(一年)。</p>
-              <p>二、支票（抬頭：台北市南投縣同鄉會）或現金袋。</p>
+              <p>二、現金或匯款。匯款帳號：台北仁杭郵局〈700〉帳號：00027790018474｜戶名：台北市南投縣同鄉會陳怡潔</p>
               <p>三、本會館自購。會館地址：台北市仁愛路一段四號十二樓之二｜電話：(02)2357-9813</p>
-              <p>四、匯款帳號：台北仁杭郵局〈700〉帳號：00027790018474｜戶名：台北市南投縣同鄉會陳怡潔</p>
             </div>
           </form>
         </div>
