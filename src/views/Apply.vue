@@ -1,10 +1,58 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { FileText, Send, CheckCircle } from 'lucide-vue-next'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerApplyImg from '@/assets/banner-apply.jpg'
 import { ElMessage } from 'element-plus'
 import axios from 'axios'
+
+const RECAPTCHA_SITE_KEY = '6LcZ9VotAAAAAH0LB5LdZ5pBEpnz-lGajei-hDMM'
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void
+      execute: (siteKey: string, options: { action: string }) => Promise<string>
+    }
+  }
+}
+
+const recaptchaLoaded = ref(false)
+
+onMounted(() => {
+  // 動態載入 reCAPTCHA v3 腳本
+  const script = document.createElement('script')
+  script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`
+  script.async = true
+  script.defer = true
+  script.onload = () => { recaptchaLoaded.value = true }
+  document.head.appendChild(script)
+})
+
+onUnmounted(() => {
+  // 元件卸載時移除腳本與 reCAPTCHA badge
+  const scripts = document.querySelectorAll(`script[src*="recaptcha"]`)
+  scripts.forEach(s => s.remove())
+  const badge = document.querySelector('.grecaptcha-badge')
+  if (badge) badge.remove()
+})
+
+const getRecaptchaToken = (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (!recaptchaLoaded.value) {
+      reject(new Error('reCAPTCHA 尚未載入'))
+      return
+    }
+    window.grecaptcha.ready(async () => {
+      try {
+        const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_apply' })
+        resolve(token)
+      } catch (err) {
+        reject(err)
+      }
+    })
+  })
+}
 
 interface FormData {
   name: string
@@ -84,10 +132,20 @@ const handleConfirm = async () => {
   isSubmitting.value = true
   
   try {
+    // 取得 reCAPTCHA v3 token
+    let recaptchaToken = ''
+    try {
+      recaptchaToken = await getRecaptchaToken()
+      console.log('[reCAPTCHA] token 取得成功，長度：', recaptchaToken.length, '（可在 Network 分頁看完整 token）')
+    } catch (err) {
+      console.warn('reCAPTCHA token 取得失敗，仍嘗試送出', err)
+    }
+
     const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbycGKGyuuB9nwhFroBTwziqMoOTJuEDfFmUr65RjasBVStxZ0KPYHLyt5hwdW_lKdqQJw/exec'
     
-    // 將表單資料以 text/plain 傳送以繞過 CORS 預檢
-    const response = await axios.post(GAS_API_URL, JSON.stringify(form.value), {
+    // 將表單資料及 reCAPTCHA token 以 text/plain 傳送以繞過 CORS 預檢
+    const payload = { ...form.value, recaptchaToken }
+    const response = await axios.post(GAS_API_URL, JSON.stringify(payload), {
       headers: {
         'Content-Type': 'text/plain;charset=utf-8',
       }
