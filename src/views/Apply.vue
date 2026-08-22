@@ -66,6 +66,7 @@ interface FormData {
   phoneWork: string
   phoneHome: string
   email: string
+  lineId: string
   address: string
   applicant: string
 }
@@ -73,7 +74,7 @@ interface FormData {
 const initialForm = (): FormData => ({
   name: '', gender: '', birthday: '', township: '', idNumber: '',
   company: '', mobile: '', referrer: '', phoneWork: '', phoneHome: '',
-  email: '', address: '', applicant: '',
+  email: '', lineId: '', address: '', applicant: '',
 })
 
 const form = ref<FormData>(initialForm())
@@ -99,6 +100,7 @@ const fieldDefs: { label: string; key: keyof FormData; type?: string; placeholde
   { label: '電話（公司）', key: 'phoneWork', type: 'tel' },
   { label: '電話（住宅）', key: 'phoneHome', type: 'tel' },
   { label: 'E-mail', key: 'email', type: 'email' },
+  { label: 'LINE ID', key: 'lineId' },
   { label: '通訊地址', key: 'address', span: 2 },
   { label: '申請人', key: 'applicant' },
 ]
