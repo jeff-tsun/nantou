@@ -48,13 +48,13 @@ const selectTerm = (id: number) => {
             <h3 class="mb-3 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               屆別選擇
             </h3>
-            <div class="flex md:flex-col gap-2">
+            <div class="flex md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0">
               <button
                 v-for="term in directorTerms"
                 :key="term.id"
                 @click="selectTerm(term.id)"
                 :class="[
-                  'rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all',
+                  'rounded-lg px-4 py-2.5 text-sm font-medium text-left transition-all whitespace-nowrap',
                   selectedTerm === term.id
                     ? 'bg-[#ce251d] text-white shadow-lg'
                     : 'bg-muted text-foreground hover:bg-border'

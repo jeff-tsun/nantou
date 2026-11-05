@@ -64,7 +64,7 @@ const copyAccount = async () => {
                     匯款 / 轉帳帳戶資訊
                   </h2>
                 </div>
-                <span class="text-xs font-medium px-2.5 py-1 rounded bg-[#1c8d3f]/10 text-[#1c8d3f]">
+                <span class="hidden sm:inline-flex text-xs font-medium px-2.5 py-1 rounded bg-[#1c8d3f]/10 text-[#1c8d3f]">
                   郵局帳戶
                 </span>
               </div>

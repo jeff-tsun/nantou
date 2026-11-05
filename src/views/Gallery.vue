@@ -59,29 +59,29 @@ onMounted(() => {
     <div class="page-section">
       <div class="container mx-auto">
         <!-- Tabs Section -->
-        <div class="flex justify-center gap-4 mb-10">
+        <div class="flex justify-center gap-3 sm:gap-4 mb-6 sm:mb-10">
           <button
             @click="activeTab = 'video'"
             :class="[
-              'inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold border transition-all duration-300 shadow-sm',
+              'inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold border transition-all duration-300 shadow-sm',
               activeTab === 'video'
                 ? 'bg-[#ebbb1c]/10 text-[#ebbb1c] border-[#ebbb1c]'
                 : 'bg-white text-muted-foreground border-gray-200 hover:bg-gray-50 hover:text-foreground'
             ]"
           >
-            <Video class="h-4.5 w-4.5" />
+            <Video class="h-4 w-4 sm:h-4.5 sm:w-4.5" />
             影片紀錄
           </button>
           <button
             @click="activeTab = 'photo'"
             :class="[
-              'inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold border transition-all duration-300 shadow-sm',
+              'inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold border transition-all duration-300 shadow-sm',
               activeTab === 'photo'
                 ? 'bg-[#ebbb1c]/10 text-[#ebbb1c] border-[#ebbb1c]'
                 : 'bg-white text-muted-foreground border-gray-200 hover:bg-gray-50 hover:text-foreground'
             ]"
           >
-            <Image class="h-4.5 w-4.5" />
+            <Image class="h-4 w-4 sm:h-4.5 sm:w-4.5" />
             照片紀錄
           </button>
         </div>

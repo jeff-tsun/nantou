@@ -26,13 +26,13 @@ const isActive = (path: string) => path && route.path === path
       <div class="container mx-auto flex items-center justify-between px-4 py-3">
         <RouterLink to="/" class="flex items-center gap-3">
           <img :src="logoImg" alt="台北市南投縣同鄉會" class="h-10 w-10 rounded-full object-contain" />
-          <span class="text-lg md:text-xl font-bold text-primary-foreground tracking-wider">
+          <span class="text-lg lg:text-xl font-bold text-primary-foreground tracking-wider">
             台北市南投縣同鄉會
           </span>
         </RouterLink>
 
         <!-- Desktop nav inline -->
-        <nav class="hidden md:flex items-center gap-1">
+        <nav class="hidden lg:flex items-center gap-1">
           <RouterLink
             v-for="item in navItems"
             :key="item.path"
@@ -50,7 +50,7 @@ const isActive = (path: string) => path && route.path === path
         </nav>
 
         <button
-          class="md:hidden text-primary-foreground p-1"
+          class="lg:hidden text-primary-foreground p-1"
           @click="mobileOpen = !mobileOpen"
           aria-label="Toggle menu"
         >
@@ -71,7 +71,7 @@ const isActive = (path: string) => path && route.path === path
     >
       <nav
         v-if="mobileOpen"
-        class="md:hidden bg-background border-b overflow-hidden block"
+        class="lg:hidden bg-background border-b overflow-hidden block"
       >
         <RouterLink
           v-for="item in navItems"
