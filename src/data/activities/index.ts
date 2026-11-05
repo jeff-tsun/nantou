@@ -1,5 +1,8 @@
 ﻿// Imports for Activities
 import act20260627 from '@/assets/activities/20260627/01.jpg'
+import act20261017 from '@/assets/activities/20261017/01.png'
+import act20261008 from '@/assets/activities/20261008/01.jpg'
+import act20261103 from '@/assets/activities/20261103/01.jpg'
 import act20261002_01 from '@/assets/activities/20261002/01.jpg'
 import act20261002_02 from '@/assets/activities/20261002/02.jpg'
 import act20261205_01 from '@/assets/activities/20261205/01.png'
@@ -59,35 +62,72 @@ const rawActivities: Omit<Activity, 'id'>[] = [
   },
   {
     tag: 'news',
-    title: '本會 召開第26屆第7次理監事聯席會議',
-    startDate: '2026-08-13',
-    image: activityDefault,
+    title: '【本會】第26屆第7次理監事聯席會議',
+    startDate: '2026-10-08',
+    image: act20261008,
     contentHtml: '',
-    hasDetailPage: false,
+    heroImage: act20261008,
+    bodyHtml: `
+      <h3>📢 台北市南投縣同鄉會 公告</h3>
+      <p>本會將召開第七次理監事聯席會議，敬請各位理監事撥冗出席，謝謝。</p>
+      <p>
+        📍日期：10/8 (四）<br>
+        📍時間：中午12：00 (11:30可進場)<br>
+        📍地點：心潮仙宮  (微風南山 4F / 台北市信義區松智路17號4樓） 
+      </p>
+      <div>🚌交通方式：</p>
+      <p>
+        👉捷運淡水信義紅線［台北101站/世貿站］ 4 號出口步行 5 分鐘<br>
+        👉捷運板南藍線［市政府站］3 號出口步行 15 分鐘。
+     </p>
+      <h3>🌹敬邀🌹</h3>
+      <p>歷屆理事長、本屆理監事及顧問參加。</p>
+      <p>📌第八次理監事聯席會議預計於11/3(二)中午召開，地點將另行通知，敬請留意後續公告。</p>
+      <a target="_blank" href="https://maps.app.goo.gl/63y8TMxtnH6pTq6t6?g_st=il"></a>
+    `,
   },
   {
     tag: 'news',
-    title: '本會 召開第26屆第8次理監事聯席會議',
-    startDate: '2026-10-15',
-    image: activityDefault,
+    title: '【本會】第26屆第8次理監事聯席會議',
+    startDate: '2026-11-03',
+    image: act20261103,
     contentHtml: '',
-    hasDetailPage: false,
+    heroImage: act20261103,
+    bodyHtml: `
+      <h3>📢 台北市南投縣同鄉會 公告</h3>
+      <p>本會將召開第八次理監事聯席會議，敬請各位理監事撥冗出席，謝謝。</p>
+      <p>
+        📍日期：115/11/3（二）<br>
+        📍用餐及會議時間：11:30-14:00 （午餐外燴饗宴）<br>
+        📍地點：本會會館 
+      </p>
+      <h3>🌹敬邀🌹</h3>
+      <p>歷屆理事長、本屆理監事及顧問參加。</p>
+    `,
   },
   {
     tag: 'news',
-    title: '總會 召開第9屆第7次理監事暨幹部聯席會議',
-    startDate: '2026-10',
-    image: activityDefault,
+    title: '【總會】第9屆第7次理監事暨幹部聯席會議',
+    startDate: '2026-10-17',
+    image: act20261017,
     contentHtml: '',
-    hasDetailPage: false,
-  },
-  {
-    tag: 'news',
-    title: '總會 召開第9屆第8次理監事暨幹部聯席會議',
-    startDate: '2027-01',
-    image: activityDefault,
-    contentHtml: '',
-    hasDetailPage: false,
+    heroImage: act20261017,
+    bodyHtml: `
+      <h3>第9屆第七次理監事會暨幹部聯席會議</h3>
+      <p>會議日期：115年10月17日（星期六）</p>
+      <p>
+        報到時間：上午10:00－10:30<br>
+        會議時間：上午10:30 準時開會<br>
+        會議地點：南投縣鹿谷鄉廣興村中正一路 148 號 
+      </p>
+      <p>出席人員：本會監事主席、副總會長及理、監事（含候補理、監事）</p>
+      <p>列席人員：本會輔導總會長、榮譽總會長、名譽總會長、各縣市會理事長、總幹事、顧問、正副秘書長、九大部長、13鄉鎮市總召、副總召。</p>
+      <div>備註：</p>
+      <ol class="list-decimal pl-6 space-y-1">
+        <li>請於 10月7日前完成報名及註明用餐習慣 （葷食、素食）， 以利統計訂餐。</li>
+        <li>理監事若有提案， 請於10月7日前以文字方式告知李政謙秘書長。</li>
+      </ol>
+    `,
   },
   {
     tag: 'event',

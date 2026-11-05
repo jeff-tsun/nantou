@@ -7,12 +7,21 @@ import { vElementVisibility } from '@vueuse/components'
 import { ref, computed, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 
-const tabs: { key: ActivityTag; label: string }[] = [
-  { key: 'news', label: '最新快訊' },
+type TabKey = ActivityTag | 'all'
+
+const tabs: { key: TabKey; label: string }[] = [
+  { key: 'all', label: '全部消息' },
   { key: 'course', label: '課程公告' },
   { key: 'event', label: '活動訊息' },
 ]
-const currentTag = ref<ActivityTag>('news')
+const currentTag = ref<TabKey>('all')
+
+// 各 tag 的標籤文字與顏色：news 黃、course 藍、event 紅
+const tagMeta: Record<ActivityTag, { label: string; class: string }> = {
+  news: { label: '最新快訊', class: 'bg-[#ebbb1c]/20 text-[#8a6800]' },
+  course: { label: '課程公告', class: 'bg-[#0f327c]/10 text-[#0f327c]' },
+  event: { label: '活動訊息', class: 'bg-[#ce251d]/10 text-[#ce251d]' },
+}
 
 // 將日期字串轉為可比較的數值，支援 '2026-10-2'、'2026-10'、'115年11/2'（民國年）
 const toTime = (s: string): number => {
@@ -25,7 +34,7 @@ const toTime = (s: string): number => {
 // 排序：日期越新越前面，先取 endDate，沒有則取 startDate
 const filtered = computed(() =>
   activities
-    .filter((a) => a.tag === currentTag.value)
+    .filter((a) => currentTag.value === 'all' || a.tag === currentTag.value)
     .sort((a, b) => toTime(b.endDate || b.startDate) - toTime(a.endDate || a.startDate))
 )
 
@@ -67,9 +76,9 @@ const onVisibility = (state: boolean, index: number) => {
           <p class="text-muted-foreground text-lg">暫無{{ tabs.find((t) => t.key === currentTag)?.label }}</p>
         </div>
 
-        <!-- 最新快訊：文字清單 -->
+        <!-- 全部消息：文字清單 -->
         <ul
-          v-else-if="currentTag === 'news'"
+          v-else-if="currentTag === 'all'"
           class="mx-auto mb-16 max-w-4xl divide-y overflow-hidden rounded-xl border bg-card shadow-sm"
         >
           <li v-for="(activity, i) in filtered" :key="`${activity.id}-${i}`">
@@ -90,6 +99,12 @@ const onVisibility = (state: boolean, index: number) => {
                   </time>
                 </div>
               </div>
+              <span
+                v-if="currentTag === 'all'"
+                :class="['inline-flex w-fit shrink-0 items-center justify-center rounded-full px-2.5 py-0.5 text-xs font-semibold', tagMeta[activity.tag].class]"
+              >
+                {{ tagMeta[activity.tag].label }}
+              </span>
               <span
                 :class="[
                   'flex-1 font-medium leading-snug text-card-foreground',
