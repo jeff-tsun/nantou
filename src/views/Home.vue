@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BookOpen, Users, Calendar, Video, ArrowRight, Mountain, TreePine, Sparkles, FileText, HeartHandshake, CreditCard, Building2, User } from 'lucide-vue-next'
+import { BookOpen, Users, Calendar, Video, ArrowRight, Mountain, TreePine, Sparkles, FileText, HeartHandshake } from 'lucide-vue-next'
 import bannerImg from '@/assets/nantou-banner.jpg'
 import { vElementVisibility } from '@vueuse/components'
 import { ref } from 'vue'
