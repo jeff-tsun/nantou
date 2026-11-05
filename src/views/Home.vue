@@ -206,7 +206,7 @@ const onDonateVisibility = (state: boolean) => { if (state) donateVisible.value 
         <div
           v-element-visibility="onDonateVisibility"
           :class="[
-            'relative overflow-hidden rounded-2xl border bg-card p-8 md:p-12 text-center transition-all duration-700 ease-out',
+            'relative overflow-hidden text-center transition-all duration-700 ease-out border-0 md:border rounded-none md:rounded-2xl bg-transparent md:bg-card p-0 md:p-12 shadow-none md:shadow-sm',
             donateVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           ]"
         >
@@ -215,14 +215,14 @@ const onDonateVisibility = (state: boolean) => { if (state) donateVisible.value 
               <HeartHandshake class="h-4 w-4" />
               我要捐款
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-3">支持同鄉會推動會務</h2>
-            <p class="text-muted-foreground text-sm md:text-base mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">支持同鄉會推動會務</h2>
+            <p class="text-muted-foreground text-sm md:text-base mb-6 md:mb-8">
               感謝各位鄉親與各界先進的熱心贊助與支持，您的每份力量都將使同鄉會更加茁壯。
             </p>
 
             <!-- 匯款/轉帳資訊 卡片 -->
-            <div class="rounded-xl border bg-muted/40 p-6 md:p-8 text-left shadow-sm mb-6">
-              <h3 class="flex items-center gap-2 text-lg font-bold text-foreground mb-4 pb-3 border-b">
+            <div class="rounded-xl border bg-muted/40 p-4 sm:p-6 md:p-8 text-left shadow-sm mb-6">
+              <h3 class="flex items-center gap-2 text-base md:text-lg font-bold text-foreground mb-4 pb-3 border-b">
                 匯款 / 轉帳資訊
               </h3>
 
@@ -251,11 +251,35 @@ const onDonateVisibility = (state: boolean) => { if (state) donateVisible.value 
             </div>
 
             <!-- 提示文字 -->
-            <div class="rounded-lg bg-[#ebbb1c]/10 p-4 text-xs md:text-sm text-foreground/80 leading-relaxed text-left border border-[#ebbb1c]/20">
+            <div class="rounded-lg bg-[#ebbb1c]/10 p-4 text-xs md:text-sm text-foreground/80 leading-relaxed text-left border border-[#ebbb1c]/20 mb-6">
               <p>
                 📌 <strong>匯款／轉帳完成後，請務必通知秘書</strong>，以利核對繳費資料。<br class="hidden sm:inline" />
                 (我們將於確認捐款款項後，開立正式收據，可辦理綜合所得總額列舉扣除額或列為營利事業當年度捐贈費用)。
               </p>
+            </div>
+
+            <!-- 聯絡與專頁按鈕 -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="https://lin.ee/YyaTrgU"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-line inline-flex items-center justify-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200 w-full sm:w-auto"
+                style="color: #ffffff !important; text-decoration: none !important;"
+              >
+                <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+                  <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+                </svg>
+                加 LINE 聯繫秘書
+              </a>
+              <RouterLink
+                to="/donation"
+                class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#ebbb1c] bg-[#ebbb1c]/10 hover:bg-[#ebbb1c]/20 px-5 py-2.5 text-sm font-semibold text-[#8a6800] transition-colors w-full sm:w-auto"
+              >
+                <HeartHandshake class="h-4 w-4 text-[#ebbb1c]" />
+                查看完整捐款說明
+              </RouterLink>
             </div>
           </div>
         </div>

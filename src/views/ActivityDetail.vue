@@ -109,7 +109,8 @@ function goBack() {
   color: #1c8d3f;
   text-decoration: underline;
 }
-::v-deep(.content-html a.btn-download) {
+::v-deep(.content-html a.btn-download),
+::v-deep(.content-html a.btn-line) {
   color: #ffffff !important;
   text-decoration: none !important;
 }

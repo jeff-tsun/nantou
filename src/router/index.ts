@@ -5,6 +5,7 @@ import Directors from '@/views/Directors.vue'
 import Activities from '@/views/Activities.vue'
 import Gallery from '@/views/Gallery.vue'
 import Apply from '@/views/Apply.vue'
+import Donation from '@/views/Donation.vue'
 import ActivityDetail from '@/views/ActivityDetail.vue'
 import NotFound from '@/views/NotFound.vue'
 
@@ -38,6 +39,11 @@ const routes = [
     path: '/apply',
     name: 'Apply',
     component: Apply
+  },
+  {
+    path: '/donation',
+    name: 'Donation',
+    component: Donation
   },
   {
     path: '/activities/:id',

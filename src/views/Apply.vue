@@ -275,7 +275,23 @@ const inputClass = "flex h-10 w-full rounded-md border border-input bg-backgroun
             </div>
 
             <div class="rounded-lg border bg-card p-5 space-y-2 text-sm">
-              ※入會最後一步：填寫並送交申請後，請務必與秘書電話聯繫，確認入會審核進度與繳費狀態。 會館電話(02)2357-9813
+              ※入會最後一步：填寫並送交申請後，請務必與秘書電話聯繫，確認入會審核進度與繳費狀態。<br>
+              會館電話(02)2357-9813、或是請加入下方秘書LINE
+              <div>
+                <a
+                  href="https://lin.ee/YyaTrgU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+                  style="color: #ffffff !important; text-decoration: none !important;"
+                >
+                  <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+                    <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+                  </svg>
+                  加 LINE 進一步確認
+                </a>
+              </div>
             </div>
             <!-- Notes -->
             <div class="rounded-lg border bg-card p-5 space-y-2 text-sm text-muted-foreground">
@@ -295,8 +311,8 @@ const inputClass = "flex h-10 w-full rounded-md border border-input bg-backgroun
       title="提醒"
       width="400px"
     >
-      <span class="text-red-500">請務必與秘書電話聯繫，確認入會審核進度與繳費狀態。</span><br>
-      <strong class="text-red-500">會館電話(02)2357-9813</strong>
+      <span class="text-red-500">請務必與秘書電話或加LINE聯繫，確認入會審核進度與繳費狀態。</span><br>
+      <strong class="text-red-500">會館電話(02)2357-9813。LINE資訊請見網頁最下方</strong>
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="showDialog = false" :disabled="isSubmitting">取消</el-button>

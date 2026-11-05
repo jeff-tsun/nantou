@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { Menu, X, BookOpen, Users, Calendar, Video, FileText } from 'lucide-vue-next'
+import { Menu, X, BookOpen, Users, Calendar, Video, FileText, HeartHandshake } from 'lucide-vue-next'
 import logoImg from '@/assets/logo.png'
 
 const route = useRoute()
 const mobileOpen = ref(false)
 
 const navItems = [
+  { label: '我要捐款', path: '/donation', icon: HeartHandshake },
   { label: '會刊', path: '/newsletter', icon: BookOpen },
   { label: '理監事介紹', path: '/directors', icon: Users },
   { label: '最新消息', path: '/activities', icon: Calendar },
   { label: '活動紀錄', path: '/gallery', icon: Video },
   { label: '入會申請', path: '/apply', icon: FileText },
-  // { label: '我要捐款', path: '/donation', icon: FileText },
 ]
 
 const isActive = (path: string) => path && route.path === path

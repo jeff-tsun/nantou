@@ -83,7 +83,7 @@ const rawActivities: Omit<Activity, 'id'>[] = [
       <h3>🌹敬邀🌹</h3>
       <p>歷屆理事長、本屆理監事及顧問參加。</p>
       <p>📌第八次理監事聯席會議預計於11/3(二)中午召開，地點將另行通知，敬請留意後續公告。</p>
-      <a target="_blank" href="https://maps.app.goo.gl/63y8TMxtnH6pTq6t6?g_st=il"></a>
+      <a target="_blank" href="https://maps.app.goo.gl/63y8TMxtnH6pTq6t6?g_st=il">點此打開地點 google map</a>
     `,
   },
   {
@@ -168,6 +168,21 @@ const rawActivities: Omit<Activity, 'id'>[] = [
         👉會員配偶及直系親屬每人優惠500元，實收3700元。
       </p>
       <p>🛏️住宿：今埔里渡假大酒店，安排住宿二人房 (如有住宿同伴請另行通知秘書)</p>
+      <p>聯絡秘書請加入下方LINE<br>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 進一步確認
+        </a>
+      </p>
       <p>人數：80位 (額滿爲止)</p>
       <h3>⚠️重要提醒</h3>
       <p>贈送每人一件鳳還巢紀念Polo衫，總會通知因製衣時程緊迫，欲參加鳳還巢的鄉親請於8/8(六)前登記報名並提供衣服尺寸，感謝鄉親的配合🙏🙏🙏</p>
@@ -273,9 +288,24 @@ const rawActivities: Omit<Activity, 'id'>[] = [
       </p>
       <p>
         <strong>💰 報名費用：</strong>$1,000元<br>
-        <strong>✨ 免費優惠：</strong>螢雪里里民、台北市/新北市南投同鄉會會員 免費參賽！
+        <strong>✨ 免費優惠：</strong>螢雪里里民、台北市/新北市南投同鄉會會員 免費參賽！<br>
+        <strong>📞 報名專線：</strong>(02)2357-9813 （週一至四 13:30-17:30）邱秘書 或群組報名
       </p>
-      <p><strong>📞報名專線：</strong>(02)2357-9813 （週一至四 13:30-17:30）邱秘書 或群組報名</p>
+      <p>聯絡秘書請加入下方LINE<br>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 進一步確認
+        </a>
+      </p>
 
       <h3>👥 參賽資格</h3>
       <p>凡對歌唱有興趣者皆可報名(職業、專業、表演歌手及本會第一名者為表演賽)</p>
@@ -516,6 +546,21 @@ const rawActivities: Omit<Activity, 'id'>[] = [
       <p>
         👉若當季壽星無法出席，請聯絡秘書，以便安排相關事宜。
       </p>
+      <p>聯絡秘書請加入下方LINE<br>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 進一步確認
+        </a>
+      </p>
       <p>
         📝<strong>報名參加請直接回覆姓名、月壽星、素食</strong>
       </p>
@@ -570,6 +615,36 @@ const rawActivities: Omit<Activity, 'id'>[] = [
 
       <p>
         📝<strong>歡迎對書法與毛筆字有興趣的朋友踴躍報名參加，報名請洽秘書邱鈺婷 (電話:2357-9813)。</strong>
+      </p>
+      <p>聯絡秘書請加入下方LINE<br>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 進一步確認
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 報名
+        </a>
       </p>
     `,
   },
@@ -636,11 +711,26 @@ const rawActivities: Omit<Activity, 'id'>[] = [
       <p>
         📝<strong>【算命自己來☯️開運自己來】歡迎對易經命理有興趣的朋友踴躍報名參加，報名請洽秘書邱鈺婷 (電話:2357-9813)。</strong>
       </p>
+      <p>聯絡秘書請加入下方LINE<br>
+        <a
+          href="https://lin.ee/YyaTrgU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-line inline-flex items-center gap-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors duration-200"
+          style="color: #ffffff !important; text-decoration: none !important;"
+        >
+          <svg class="h-5 w-5 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 5.6 2 10.05c0 3.98 3.55 7.32 8.35 7.95.33.07.77.22.88.5.1.25.07.64.03.9l-.14.85c-.04.25-.2.98.86.53 1.06-.45 5.72-3.37 7.8-5.77C21.2 13.4 22 11.8 22 10.05 22 5.6 17.52 2 12 2Z" />
+            <text x="12" y="12.4" text-anchor="middle" font-size="5.2" font-weight="800" font-family="Arial, sans-serif" fill="#06C755">LINE</text>
+          </svg>
+          加 LINE 進一步確認
+        </a>
+      </p>
     `,
   },
   {
     tag: 'event',
-    title: '第27屆第一次會員大會暨第一次理監事聯席會議',
+    title: '召開本會第27屆第一次會員大會暨第26、27屆理事長交接、理監事就職典禮,恭請撥冗蒞臨。',
     startDate: '2026-12-05',
     image: act20261205_01,
     contentHtml: '',
