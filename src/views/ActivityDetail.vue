@@ -10,7 +10,7 @@ const route = useRoute()
 const router = useRouter()
 
 const activity = computed(() =>
-  activities.find((a) => String(a.id) === String(route.params.id) || a.date === route.params.id)
+  activities.find((a) => String(a.id) === String(route.params.id))
 )
 
 function goBack() {
@@ -44,9 +44,13 @@ function goBack() {
 
           <!-- 1. 時間 + 標題 -->
           <div class="pb-6">
-            <div class="mb-3 flex items-center gap-2 text-sm text-muted-foreground">
-              <CalendarDays class="h-4 w-4" />
-              <time>{{ activity.date }}</time>
+            <div class="mb-3 flex items-start gap-2 text-sm text-muted-foreground">
+              <CalendarDays class="mt-0.5 h-4 w-4 shrink-0" />
+              <div class="flex flex-wrap items-center gap-x-2">
+                <time>{{ activity.startDate }}</time>
+                <span v-if="activity.endDate">~</span>
+                <time v-if="activity.endDate">{{ activity.endDate }}</time>
+              </div>
             </div>
             <h1 class="text-2xl md:text-3xl font-bold text-card-foreground leading-snug">
               {{ activity.title }}

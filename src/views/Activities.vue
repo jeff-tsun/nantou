@@ -68,10 +68,15 @@ const onVisibility = (state: boolean, index: number) => {
                 activity.hasDetailPage !== false ? 'cursor-pointer transition-colors hover:bg-[#1c8d3f]/5 group' : ''
               ]"
             >
-              <time class="flex shrink-0 items-center gap-1.5 text-sm text-muted-foreground sm:w-28">
-                <CalendarDays class="h-3.5 w-3.5" />
-                {{ activity.date }}
-              </time>
+              <div class="flex shrink-0 items-start gap-1.5 text-xs text-muted-foreground sm:w-36">
+                <CalendarDays class="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                <div class="flex flex-col leading-tight">
+                  <time>{{ activity.startDate }}</time>
+                  <time v-if="activity.endDate">
+                    <span class="mx-1">~</span>{{ activity.endDate }}
+                  </time>
+                </div>
+              </div>
               <span
                 :class="[
                   'flex-1 font-medium leading-snug text-card-foreground',
@@ -114,9 +119,14 @@ const onVisibility = (state: boolean, index: number) => {
               />
             </div>
             <div class="p-6">
-              <div class="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
-                <CalendarDays class="h-3.5 w-3.5" />
-                <time>{{ activity.date }}</time>
+              <div class="mb-2 flex items-start gap-1.5 text-xs text-muted-foreground">
+                <CalendarDays class="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                <div class="leading-tight">
+                  <time>{{ activity.startDate }}</time>
+                  <time v-if="activity.endDate">
+                    <span class="mx-1">~</span>{{ activity.endDate }}
+                  </time>
+                </div>
               </div>
               <h2 class="mb-3 text-xl font-bold text-card-foreground">{{ activity.title }}</h2>
               <div

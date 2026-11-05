@@ -1,4 +1,4 @@
-// Imports for Activities
+﻿// Imports for Activities
 import act20260627 from '@/assets/activities/20260627/01.jpg'
 import act20261002_01 from '@/assets/activities/20261002/01.jpg'
 import act20261002_02 from '@/assets/activities/20261002/02.jpg'
@@ -22,7 +22,8 @@ export interface Activity {
   tag: ActivityTag;
   id: number;
   title: string;
-  date: string;
+  startDate: string;
+  endDate?: string;
   image: string;
   contentHtml: string;
   heroImage?: string;
@@ -35,7 +36,7 @@ export const activities: Activity[] = [
     id: 1,
     tag: 'event',
     title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
-    date: '2026-06-27',
+    startDate: '2026-06-27',
     image: act20260627,
     contentHtml: `
       <p>歡迎鄉親攜伴寶眷參加，共同聯誼交流！</p>
@@ -59,7 +60,7 @@ export const activities: Activity[] = [
     id: 3,
     tag: 'news',
     title: '本會 召開第26屆第7次理監事聯席會議',
-    date: '2026-08-13',
+    startDate: '2026-08-13',
     image: activityDefault,
     contentHtml: '',
     hasDetailPage: false,
@@ -68,7 +69,7 @@ export const activities: Activity[] = [
     id: 7,
     tag: 'news',
     title: '本會 召開第26屆第8次理監事聯席會議',
-    date: '2026-10-15',
+    startDate: '2026-10-15',
     image: activityDefault,
     contentHtml: '',
     hasDetailPage: false,
@@ -77,7 +78,7 @@ export const activities: Activity[] = [
     id: 8,
     tag: 'news',
     title: '總會 召開第9屆第7次理監事暨幹部聯席會議',
-    date: '2026-10',
+    startDate: '2026-10',
     image: activityDefault,
     contentHtml: '',
     hasDetailPage: false,
@@ -86,7 +87,7 @@ export const activities: Activity[] = [
     id: 10,
     tag: 'news',
     title: '總會 召開第9屆第8次理監事暨幹部聯席會議',
-    date: '2027-01',
+    startDate: '2027-01',
     image: activityDefault,
     contentHtml: '',
     hasDetailPage: false,
@@ -95,7 +96,8 @@ export const activities: Activity[] = [
     id: 11,
     tag: 'event',
     title: '115年度鳳還巢活動報名開跑！',
-    date: '2026-10-2~2026-10-3',
+    startDate: '2026-10-2',
+    endDate: '2026-10-3',
     image: act20261002_01,
     contentHtml: `
       <p>一年一度的鄉親盛會鳳還巢活動即將登場，即刻開始報名至8/8(六)前。</p>
@@ -142,7 +144,7 @@ export const activities: Activity[] = [
     id: 12,
     tag: 'event',
     title: '【夏末樂活・三代同遊】宜蘭萌寵傳藝一日遊 暨 第三季慶生會（7-9月）',
-    date: '2026-09-19',
+    startDate: '2026-09-19',
     image: act20260919,
     contentHtml: `
       <p>
@@ -211,7 +213,7 @@ export const activities: Activity[] = [
     id: 13,
     tag: 'event',
     title: '【台北市第二屆北音歌唱賽】報名簡章',
-    date: '2026-09-26',
+    startDate: '2026-09-26',
     image: act20260926_01,
     contentHtml: `
       <p>熱愛歌唱的朋友照過來！舞台已備妥，萬元獎金等你來拿！</p>
@@ -296,7 +298,8 @@ export const activities: Activity[] = [
     id: 14,
     tag: 'event',
     title: '🎨 藝起動手・讓腦袋也動起來！10堂藝術創作活力課開始招生',
-    date: '2026-09-29~2026-12-08',
+    startDate: '2026-09-29',
+    endDate: '2026-12-08',
     image: act20260929_01,
     contentHtml: `
       <p>每週二上午，留兩個小時給自己。這不只是來做手作，而是透過不同媒材，讓我們一起動手、動眼、動腦、動感官、也動起生活圈！</p>
@@ -365,7 +368,7 @@ export const activities: Activity[] = [
     id: 15,
     tag: 'news',
     title: '📢 台北市南投縣同鄉會會員暨子女獎學金申請通知',
-    date: '2026-10-20',
+    startDate: '2026-10-20',
     image: act20261020_01,
     contentHtml: `
       <p><strong>💰 獎學金金額：</strong>每名新台幣 伍仟元整</p>
@@ -419,7 +422,8 @@ export const activities: Activity[] = [
     id: 16,
     tag: 'news',
     title: '📢 台北市南投縣同鄉會 115 年度「會員敬老」活動公告',
-    date: '2026-09-01~2026-10-29',
+    startDate: '2026-09-01',
+    endDate: '2026-10-29',
     image: activityDefault,
     contentHtml: `
       <p>為表達敬老之意，本會將辦理 115 年度會員敬老活動，相關說明如下：</p>
@@ -457,7 +461,7 @@ export const activities: Activity[] = [
     id: 17,
     tag: 'event',
     title: '📢 台北市南投縣同鄉會【第四季會員聯誼餐會曁壽星慶生會（10-12月）】',
-    date: '2026-11-08',
+    startDate: '2026-11-08',
     image: act20261108,
     contentHtml: `
       <p>
@@ -493,7 +497,8 @@ export const activities: Activity[] = [
     id: 18,
     tag: 'course',
     title: '🔔 台北市南投縣同鄉會 書法班🖌️招生公告',
-    date: '115年11/2~116年5/10',
+    startDate: '2026-11-02',
+    endDate: '2027-05-10',
     image: activityDefault,
     contentHtml: `
       <p>
@@ -542,7 +547,8 @@ export const activities: Activity[] = [
     id: 19,
     tag: 'course',
     title: '☯️ 易經命理八字基礎班招生公告',
-    date: '115年11/2~116年5/10',
+    startDate: '2026-11-02',
+    endDate: '2027-05-10',
     image: activityDefault,
     contentHtml: `
       <p>
