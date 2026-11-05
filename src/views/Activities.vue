@@ -1,13 +1,23 @@
 <script setup lang="ts">
-import { CalendarDays } from 'lucide-vue-next'
-import { activities, googleCalendarEmbedUrl } from '@/data/activities'
+import { CalendarDays, ChevronRight } from 'lucide-vue-next'
+import { activities, googleCalendarEmbedUrl, type ActivityTag } from '@/data/activities'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-activities.jpg'
 import { vElementVisibility } from '@vueuse/components'
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 
-const isVisible = ref(new Array(activities.length).fill(false))
+const tabs: { key: ActivityTag; label: string }[] = [
+  { key: 'news', label: '最新快訊' },
+  { key: 'course', label: '課程公告' },
+  { key: 'event', label: '活動訊息' },
+]
+const currentTag = ref<ActivityTag>('news')
+
+const filtered = computed(() => activities.filter((a) => a.tag === currentTag.value))
+
+const isVisible = ref<boolean[]>([])
+watch(currentTag, () => { isVisible.value = [] })
 const onVisibility = (state: boolean, index: number) => {
   if (state) isVisible.value[index] = true
 }
@@ -19,16 +29,72 @@ const onVisibility = (state: boolean, index: number) => {
 
     <div class="page-section">
       <div class="container mx-auto">
-        <!-- Activity cards -->
-        <div v-if="activities.length === 0" class="text-center py-20 bg-muted/30 rounded-xl border border-dashed mb-16">
-          <p class="text-muted-foreground text-lg">暫無最新消息</p>
+        <!-- Tag 切換 -->
+        <div class="mb-8 flex justify-center">
+          <div class="inline-flex w-full max-w-md rounded-xl bg-muted p-1 sm:w-auto" role="tablist">
+            <button
+              v-for="tab in tabs"
+              :key="tab.key"
+              role="tab"
+              :aria-selected="currentTag === tab.key"
+              @click="currentTag = tab.key"
+              :class="[
+                'flex-1 sm:flex-none whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 sm:px-6',
+                currentTag === tab.key
+                  ? 'bg-[#1c8d3f] text-white shadow'
+                  : 'text-muted-foreground hover:text-foreground'
+              ]"
+            >
+              {{ tab.label }}
+            </button>
+          </div>
         </div>
+
+        <div v-if="filtered.length === 0" class="text-center py-20 bg-muted/30 rounded-xl border border-dashed mb-16">
+          <p class="text-muted-foreground text-lg">暫無{{ tabs.find((t) => t.key === currentTag)?.label }}</p>
+        </div>
+
+        <!-- 最新快訊：文字清單 -->
+        <ul
+          v-else-if="currentTag === 'news'"
+          class="mx-auto mb-16 max-w-4xl divide-y overflow-hidden rounded-xl border bg-card shadow-sm"
+        >
+          <li v-for="(activity, i) in filtered" :key="`${activity.id}-${i}`">
+            <component
+              :is="activity.hasDetailPage !== false ? RouterLink : 'div'"
+              v-bind="activity.hasDetailPage !== false ? { to: `/activities/${activity.id}` } : {}"
+              :class="[
+                'flex flex-col gap-1 px-4 py-4 no-underline sm:flex-row sm:items-center sm:gap-6 sm:px-6',
+                activity.hasDetailPage !== false ? 'cursor-pointer transition-colors hover:bg-[#1c8d3f]/5 group' : ''
+              ]"
+            >
+              <time class="flex shrink-0 items-center gap-1.5 text-sm text-muted-foreground sm:w-28">
+                <CalendarDays class="h-3.5 w-3.5" />
+                {{ activity.date }}
+              </time>
+              <span
+                :class="[
+                  'flex-1 font-medium leading-snug text-card-foreground',
+                  activity.hasDetailPage !== false ? 'group-hover:text-[#1c8d3f]' : ''
+                ]"
+              >
+                {{ activity.title }}
+              </span>
+              <ChevronRight
+                v-if="activity.hasDetailPage !== false"
+                class="hidden h-4 w-4 shrink-0 text-muted-foreground group-hover:text-[#1c8d3f] sm:block"
+              />
+            </component>
+          </li>
+        </ul>
+
+        <!-- 課程公告 / 活動訊息：卡片 -->
         <div v-else class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
           <component
             :is="activity.hasDetailPage !== false ? RouterLink : 'div'"
-            v-for="(activity, i) in activities"
-            :key="activity.id"
-            v-bind="activity.hasDetailPage !== false ? { to: `/activities/${activity.date}` } : {}"
+            v-for="(activity, i) in filtered"
+            :key="`${activity.id}-${i}`"
+            v-bind="activity.hasDetailPage !== false ? { to: `/activities/${activity.id}` } : {}"
             v-element-visibility="(state: boolean) => onVisibility(state, i)"
             :class="[
               'overflow-hidden rounded-xl border bg-card shadow-sm transition-all duration-700 ease-out block no-underline',

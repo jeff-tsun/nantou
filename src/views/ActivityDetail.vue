@@ -10,7 +10,7 @@ const route = useRoute()
 const router = useRouter()
 
 const activity = computed(() =>
-  activities.find((a) => a.date === route.params.date)
+  activities.find((a) => String(a.id) === String(route.params.id) || a.date === route.params.id)
 )
 
 function goBack() {
@@ -104,6 +104,10 @@ function goBack() {
 ::v-deep(.content-html a) {
   color: #1c8d3f;
   text-decoration: underline;
+}
+::v-deep(.content-html a.btn-download) {
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 ::v-deep(.content-html img) {
   max-width: 100%;

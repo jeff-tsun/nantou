@@ -40,7 +40,7 @@ const routes = [
     component: Apply
   },
   {
-    path: '/activities/:date',
+    path: '/activities/:id',
     name: 'ActivityDetail',
     component: ActivityDetail
   },
