@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BookOpen, Users, Calendar, Video, ArrowRight, Mountain, TreePine, Sparkles, FileText } from 'lucide-vue-next'
+import { BookOpen, Users, Calendar, Video, ArrowRight, Mountain, TreePine, Sparkles, FileText, HeartHandshake, CreditCard, Building2, User } from 'lucide-vue-next'
 import bannerImg from '@/assets/nantou-banner.jpg'
 import { vElementVisibility } from '@vueuse/components'
 import { ref } from 'vue'
@@ -53,6 +53,9 @@ const onFeatureVisibility = (state: boolean, index: number) => {
 
 const ctaVisible = ref(false)
 const onCtaVisibility = (state: boolean) => { if (state) ctaVisible.value = true }
+
+const donateVisible = ref(false)
+const onDonateVisibility = (state: boolean) => { if (state) donateVisible.value = true }
 </script>
 
 <template>
@@ -192,6 +195,68 @@ const onCtaVisibility = (state: boolean) => { if (state) ctaVisible.value = true
             <p class="mt-4 text-xs text-muted-foreground">
               年費：貳仟元整　｜　歡迎來電洽詢 <span class="text-[#ce251d] font-semibold">(02) 2357-9813</span>
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="page-section bg-gradient-to-tr from-background via-background to-[#ebbb1c]/10">
+      <div class="container mx-auto">
+        <div
+          v-element-visibility="onDonateVisibility"
+          :class="[
+            'relative overflow-hidden rounded-2xl border bg-card p-8 md:p-12 text-center transition-all duration-700 ease-out',
+            donateVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          ]"
+        >
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 mb-4 rounded-full bg-[#ebbb1c]/20 px-4 py-1.5 text-sm font-semibold text-[#8a6800]">
+              <HeartHandshake class="h-4 w-4" />
+              我要捐款
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-3">支持同鄉會推動會務</h2>
+            <p class="text-muted-foreground text-sm md:text-base mb-8">
+              感謝各位鄉親與各界先進的熱心贊助與支持，您的每份力量都將使同鄉會更加茁壯。
+            </p>
+
+            <!-- 匯款/轉帳資訊 卡片 -->
+            <div class="rounded-xl border bg-muted/40 p-6 md:p-8 text-left shadow-sm mb-6">
+              <h3 class="flex items-center gap-2 text-lg font-bold text-foreground mb-4 pb-3 border-b">
+                匯款 / 轉帳資訊
+              </h3>
+
+              <div class="grid gap-3 text-sm md:text-base">
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                  <span class="font-semibold text-muted-foreground w-20 shrink-0 flex items-center gap-1.5">
+                    銀行：
+                  </span>
+                  <span class="text-foreground font-medium">台北仁杭郵局(700)</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                  <span class="font-semibold text-muted-foreground w-20 shrink-0 flex items-center gap-1.5">
+                    帳號：
+                  </span>
+                  <span class="text-foreground font-mono font-bold text-base md:text-lg tracking-wider text-[#0f327c]">
+                    00027790018474
+                  </span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                  <span class="font-semibold text-muted-foreground w-20 shrink-0 flex items-center gap-1.5">
+                    戶名：
+                  </span>
+                  <span class="text-foreground font-medium">台北市南投縣同鄉會陳怡潔</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 提示文字 -->
+            <div class="rounded-lg bg-[#ebbb1c]/10 p-4 text-xs md:text-sm text-foreground/80 leading-relaxed text-left border border-[#ebbb1c]/20">
+              <p>
+                📌 <strong>匯款／轉帳完成後，請務必通知秘書</strong>，以利核對繳費資料。<br class="hidden sm:inline" />
+                (我們將於確認捐款款項後，開立正式收據，可辦理綜合所得總額列舉扣除額或列為營利事業當年度捐贈費用)。
+              </p>
+            </div>
           </div>
         </div>
       </div>

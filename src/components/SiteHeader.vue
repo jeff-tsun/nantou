@@ -13,6 +13,7 @@ const navItems = [
   { label: '最新消息', path: '/activities', icon: Calendar },
   { label: '活動紀錄', path: '/gallery', icon: Video },
   { label: '入會申請', path: '/apply', icon: FileText },
+  // { label: '我要捐款', path: '/donation', icon: FileText },
 ]
 
 const isActive = (path: string) => path && route.path === path

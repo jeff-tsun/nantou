@@ -2,6 +2,8 @@
 import act20260627 from '@/assets/activities/20260627/01.jpg'
 import act20261002_01 from '@/assets/activities/20261002/01.jpg'
 import act20261002_02 from '@/assets/activities/20261002/02.jpg'
+import act20261205_01 from '@/assets/activities/20261205/01.png'
+import act20261205_02 from '@/assets/activities/20261205/02.png'
 import act20260929_01 from '@/assets/activities/20260929/01.jpg'
 import act20260929_02 from '@/assets/activities/20260929/02.jpg'
 import act20260929_03 from '@/assets/activities/20260929/03.jpg'
@@ -31,9 +33,8 @@ export interface Activity {
   hasDetailPage?: boolean;
 }
 
-export const activities: Activity[] = [
+const rawActivities: Omit<Activity, 'id'>[] = [
   {
-    id: 1,
     tag: 'event',
     title: '115年度第二季會員聯誼餐會 暨壽星慶生會(4 ~ 6月)',
     startDate: '2026-06-27',
@@ -57,7 +58,6 @@ export const activities: Activity[] = [
     bodyHtml: '',
   },
   {
-    id: 3,
     tag: 'news',
     title: '本會 召開第26屆第7次理監事聯席會議',
     startDate: '2026-08-13',
@@ -66,7 +66,6 @@ export const activities: Activity[] = [
     hasDetailPage: false,
   },
   {
-    id: 7,
     tag: 'news',
     title: '本會 召開第26屆第8次理監事聯席會議',
     startDate: '2026-10-15',
@@ -75,7 +74,6 @@ export const activities: Activity[] = [
     hasDetailPage: false,
   },
   {
-    id: 8,
     tag: 'news',
     title: '總會 召開第9屆第7次理監事暨幹部聯席會議',
     startDate: '2026-10',
@@ -84,7 +82,6 @@ export const activities: Activity[] = [
     hasDetailPage: false,
   },
   {
-    id: 10,
     tag: 'news',
     title: '總會 召開第9屆第8次理監事暨幹部聯席會議',
     startDate: '2027-01',
@@ -93,7 +90,6 @@ export const activities: Activity[] = [
     hasDetailPage: false,
   },
   {
-    id: 11,
     tag: 'event',
     title: '115年度鳳還巢活動報名開跑！',
     startDate: '2026-10-2',
@@ -102,14 +98,15 @@ export const activities: Activity[] = [
     contentHtml: `
       <p>一年一度的鄉親盛會鳳還巢活動即將登場，即刻開始報名至8/8(六)前。</p>
       <p>
-        ❤️10/2（第一天）<br>
+        <strong>❤️10/2（第一天）</strong><br>
         車上享用早餐 → 明德水庫乘船環湖&海棠島客家舞蹈劇場及歌舞演出 → 風味午餐 → 禪機山仙佛寺 →  入住今埔里渡假大酒店 → 享用風味晚餐 → 卡拉 OK 歡唱~附設:男女裸湯
       </p>
       <p>
-        ❤️10/3（第二天）<br>
+        <strong>❤️10/3（第二天）</strong><br>
         飯店內自助早餐 → 鳳還巢大會師聯誼活動與午宴 (會展中心) → 行程結束
       </p>
-      <p>🛏️住宿：今埔里渡假大酒店，安排住宿二人房 (如有住宿同伴請另行通知秘書)</p>
+      <p><strong>🛏️住宿：</strong><br>
+      今埔里渡假大酒店，安排住宿二人房 (如有住宿同伴請另行通知秘書)</p>
       <p>人數：80位 (額滿爲止)</p>
     `,
     heroImage: act20261002_01,
@@ -118,11 +115,11 @@ export const activities: Activity[] = [
       <p>一年一度的鄉親盛會鳳還巢活動即將登場，即刻開始報名至8/8(六)前。</p>
       <p>🗓️ 活動日期：10/2 - 10/3 (週五、週六)</p>
       <p>
-        ❤️10/2（第一天）<br>
+        <strong>❤️10/2（第一天）</strong><br>
         車上享用早餐 → 明德水庫乘船環湖&海棠島客家舞蹈劇場及歌舞演出 → 風味午餐 → 禪機山仙佛寺 →  入住今埔里渡假大酒店 → 享用風味晚餐 → 卡拉 OK 歡唱~附設:男女裸湯
       </p>
       <p>
-        ❤️10/3（第二天）<br>
+        <strong>❤️10/3（第二天）</strong><br>
         飯店內自助早餐 → 鳳還巢大會師聯誼活動與午宴 (會展中心) → 行程結束
       </p>
       <p>
@@ -141,7 +138,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 12,
     tag: 'event',
     title: '【夏末樂活・三代同遊】宜蘭萌寵傳藝一日遊 暨 第三季慶生會（7-9月）',
     startDate: '2026-09-19',
@@ -210,7 +206,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 13,
     tag: 'event',
     title: '【台北市第二屆北音歌唱賽】報名簡章',
     startDate: '2026-09-26',
@@ -295,7 +290,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 14,
     tag: 'event',
     title: '🎨 藝起動手・讓腦袋也動起來！10堂藝術創作活力課開始招生',
     startDate: '2026-09-29',
@@ -365,7 +359,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 15,
     tag: 'news',
     title: '📢 台北市南投縣同鄉會會員暨子女獎學金申請通知',
     startDate: '2026-10-20',
@@ -419,7 +412,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 16,
     tag: 'news',
     title: '📢 台北市南投縣同鄉會 115 年度「會員敬老」活動公告',
     startDate: '2026-09-01',
@@ -458,7 +450,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 17,
     tag: 'event',
     title: '📢 台北市南投縣同鄉會【第四季會員聯誼餐會曁壽星慶生會（10-12月）】',
     startDate: '2026-11-08',
@@ -494,7 +485,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 18,
     tag: 'course',
     title: '🔔 台北市南投縣同鄉會 書法班🖌️招生公告',
     startDate: '2026-11-02',
@@ -544,7 +534,6 @@ export const activities: Activity[] = [
     `,
   },
   {
-    id: 19,
     tag: 'course',
     title: '☯️ 易經命理八字基礎班招生公告',
     startDate: '2026-11-02',
@@ -609,7 +598,25 @@ export const activities: Activity[] = [
       </p>
     `,
   },
+  {
+    tag: 'event',
+    title: '第27屆第一次會員大會暨第一次理監事聯席會議',
+    startDate: '2026-12-05',
+    image: act20261205_01,
+    contentHtml: '',
+    heroImage: act20261205_01,
+    bodyHtml: `
+      <p>
+        <img src="${act20261205_02}" alt="活動海報" />
+      </p>
+    `,
+  },
 ];
+
+export const activities: Activity[] = rawActivities.map((item, index) => ({
+  ...item,
+  id: index + 1,
+}));
 
 // ===== Google 行事曆 =====
 // 請將下方 src 替換為實際的 Google Calendar 嵌入網址

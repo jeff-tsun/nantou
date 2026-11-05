@@ -14,7 +14,20 @@ const tabs: { key: ActivityTag; label: string }[] = [
 ]
 const currentTag = ref<ActivityTag>('news')
 
-const filtered = computed(() => activities.filter((a) => a.tag === currentTag.value))
+// 將日期字串轉為可比較的數值，支援 '2026-10-2'、'2026-10'、'115年11/2'（民國年）
+const toTime = (s: string): number => {
+  const nums = s.match(/\d+/g)?.map(Number) ?? []
+  let [y = 0, m = 1, d = 1] = nums
+  if (/年/.test(s) || y < 1000) y += 1911
+  return new Date(y, m - 1, d).getTime()
+}
+
+// 排序：日期越新越前面，先取 endDate，沒有則取 startDate
+const filtered = computed(() =>
+  activities
+    .filter((a) => a.tag === currentTag.value)
+    .sort((a, b) => toTime(b.endDate || b.startDate) - toTime(a.endDate || a.startDate))
+)
 
 const isVisible = ref<boolean[]>([])
 watch(currentTag, () => { isVisible.value = [] })
@@ -113,7 +126,7 @@ const onVisibility = (state: boolean, index: number) => {
                 :src="activity.image"
                 :alt="activity.title"
                 :class="[
-                  'h-full w-full object-cover transition-transform duration-500',
+                  'h-full w-full object-cover object-top transition-transform duration-500',
                   activity.hasDetailPage !== false ? 'hover:scale-105' : ''
                 ]"
               />
