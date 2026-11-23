@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, shallowRef } from 'vue'
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-vue-next'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Virtual, Keyboard } from 'swiper/modules'
+import { Virtual, Keyboard, Zoom } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
+import 'swiper/css/zoom'
 import PageBanner from '@/components/PageBanner.vue'
 import bannerImg from '@/assets/banner-newsletter.jpg'
 
@@ -92,7 +93,9 @@ const swiperRef = shallowRef<SwiperType | null>(null)
 const issue = computed(() => issues[selectedIssue.value])
 const pages = computed(() => issue.value.pages)
 
-const modules = [Virtual, Keyboard]
+const modules = [Virtual, Keyboard, Zoom]
+
+const isZoomed = ref(false)
 
 const onSwiper = (swiper: SwiperType) => {
   swiperRef.value = swiper
@@ -100,7 +103,15 @@ const onSwiper = (swiper: SwiperType) => {
 
 const onSlideChange = (swiper: SwiperType) => {
   currentPage.value = swiper.activeIndex
+  isZoomed.value = false
 }
+
+const onZoomChange = (_swiper: SwiperType, scale: number) => {
+  isZoomed.value = scale > 1
+}
+
+// 放大／還原（也支援雙擊、雙指縮放）
+const toggleZoom = () => swiperRef.value?.zoom.toggle()
 
 const goTo = (index: number) => {
   swiperRef.value?.slideTo(index)
@@ -114,6 +125,7 @@ const switchIssue = (idx: number) => {
   if (idx === selectedIssue.value) return
   selectedIssue.value = idx
   currentPage.value = 0
+  isZoomed.value = false
 }
 </script>
 
@@ -162,6 +174,7 @@ const switchIssue = (idx: number) => {
                 :modules="modules"
                 :virtual="{ addSlidesBefore: 2, addSlidesAfter: 3 }"
                 :keyboard="{ enabled: true }"
+                :zoom="{ maxRatio: 3, minRatio: 1, toggle: true }"
                 :slides-per-view="1"
                 :space-between="0"
                 :speed="350"
@@ -172,17 +185,19 @@ const switchIssue = (idx: number) => {
                 class="newsletter-swiper"
                 @swiper="onSwiper"
                 @slide-change="onSlideChange"
+                @zoom-change="onZoomChange"
               >
                 <SwiperSlide
                   v-for="(page, i) in pages"
                   :key="`${issue.id}-${i}`"
                   :virtual-index="i"
+                  class="aspect-[3779/5344]"
                 >
-                  <div class="relative w-full aspect-[3779/5344]">
+                  <div class="swiper-zoom-container">
                     <img
                       :src="page.src"
                       :alt="page.alt"
-                      class="absolute inset-0 h-full w-full object-contain select-none"
+                      class="select-none"
                       draggable="false"
                       decoding="async"
                     />
@@ -229,8 +244,19 @@ const switchIssue = (idx: number) => {
           </button>
         </div>
 
-        <p class="md:hidden mt-2 text-center text-xs text-muted-foreground/70 select-none">
-          👈 左右滑動可翻閱頁面 👉
+        <div class="mt-3 flex justify-center">
+          <button
+            @click="toggleZoom"
+            class="inline-flex items-center gap-1.5 rounded-full border bg-muted px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-border hover:text-foreground"
+          >
+            <component :is="isZoomed ? ZoomOut : ZoomIn" class="h-4 w-4" />
+            {{ isZoomed ? '還原' : '放大' }}
+          </button>
+        </div>
+
+        <p class="mt-2 text-center text-xs text-muted-foreground/70 select-none">
+          <span class="md:hidden">👈 左右滑動翻頁，雙指或雙擊可放大 👉</span>
+          <span class="hidden md:inline">雙擊圖片或按「放大」可放大，放大後可拖曳移動</span>
         </p>
 
         <!-- Page dots -->
